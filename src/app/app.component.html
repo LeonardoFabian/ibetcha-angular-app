@@ -1,0 +1,13 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <h2>Today Matches</h2>
+
+  <app-matches-list [matches]="todayMatches"></app-matches-list>
+
+  <h2>Old Matches</h2>
+
+  <app-matches-list [matches]="oldMatches"></app-matches-list>
+</div>

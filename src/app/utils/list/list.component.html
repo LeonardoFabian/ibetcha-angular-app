@@ -1,0 +1,22 @@
+<div *ngIf="!list">
+  <span #loader>
+    <ng-content select="[loader]"></ng-content>
+  </span>
+  <span *ngIf="!loader.innerHTML.trim()">
+    <img src="https://cdn.dribbble.com/users/494229/screenshots/1601132/loadingicon14.gif" alt="">
+  </span>
+</div>
+
+<div *ngIf="list?.length === 0">
+  <span #message>
+    <ng-content select="[errorMessage]"></ng-content>
+  </span>
+  <span *ngIf="!message.innerHTML.trim()">
+    <p>Nothing to show</p>
+  </span>
+</div>
+
+<ng-container *ngIf="list && list.length > 0">
+  <!--proyeccion de contenido-->
+  <ng-content select="[content]"></ng-content>
+</ng-container>

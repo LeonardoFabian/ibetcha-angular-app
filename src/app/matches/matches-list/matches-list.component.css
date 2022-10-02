@@ -1,0 +1,17 @@
+.card {
+  background-color: #ffffff;
+  border: 1px solid #bdbdbd;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+.btn {
+  padding: .5rem;
+  border-radius: .5rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #003876;
+  color: #ffffff;
+}
