@@ -1,22 +1,32 @@
 <app-list [list]="matches">
-  <ng-container errorMessage>
+  <!-- <ng-container errorMessage>
     <div>
       No matches to display
     </div>
-  </ng-container>
+  </ng-container> -->
   <ng-container content>
-    <div *ngFor="let match of matches; let index = index" class="card">
-      <div>
-        {{ match.title }}
-      </div>
-      <div>
-        {{ match.commenceTime | date: "dd-MM-yyyy" | uppercase }}
-      </div>
-      <div>
-        {{ match.stadium }}
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary" (click)="makeBet(index)">Bet this match</button>
+    <div class="matches-container">
+      <div *ngFor="let match of matches; let index = index" class="card match-container">
+        <div>
+          <a>
+            <img [src]="match.awayTeamIcon" alt="" class="team-logo">
+          </a>
+          <a>
+            <img [src]="match.homeTeamIcon" alt="" class="team-logo">
+          </a>
+        </div>
+        <div>
+          <h3><a>{{ match.awayTeam }}</a> @ <a>{{ match.homeTeam }}</a></h3>
+        </div>
+        <div>
+          {{ match.commenceTime | date: "dd-MM-yyyy" | uppercase }}
+        </div>
+        <div>
+          {{ match.stadium }}
+        </div>
+        <div>
+          <button mat-flat-button color="primary" (click)="makeBet(index)">Bet this match</button>
+        </div>
       </div>
     </div>
   </ng-container>

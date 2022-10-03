@@ -9,13 +9,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material/material.module';
 import { MenuComponent } from './menu/menu.component';
+import { RatingComponent } from './rating/rating.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { BetsIndexComponent } from './bets/bets-index/bets-index.component';
+import { SportsListComponent } from './sports/sports-list/sports-list.component';
+import { MatchesIndexComponent } from './matches/matches-index/matches-index.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatchesListComponent,
     ListComponent,
-    MenuComponent
+    MenuComponent,
+    RatingComponent,
+    LandingPageComponent,
+    BetsIndexComponent,
+    SportsListComponent,
+    MatchesIndexComponent
   ],
   imports: [
     BrowserModule,

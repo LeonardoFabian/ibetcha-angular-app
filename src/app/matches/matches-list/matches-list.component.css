@@ -4,14 +4,18 @@
   margin-bottom: 2rem;
   padding: 1rem;
 }
-.btn {
-  padding: .5rem;
-  border-radius: .5rem;
-  margin-top: 1rem;
-  border: none;
-  cursor: pointer;
+
+.matches-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
 }
-.btn-primary {
-  background-color: #003876;
-  color: #ffffff;
+
+.match-container {
+  text-align: center;
+}
+
+img.team-logo {
+  height: 50px;
 }
