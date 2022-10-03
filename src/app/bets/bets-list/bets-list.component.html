@@ -1,0 +1,20 @@
+<app-list [list]="bets">
+  <ng-container content>
+    <div class="bets-container">
+      <div *ngFor="let bet of bets; let index = index" class="bet-container">
+        <div>
+          <h3><a>{{ bet.awayTeam }}</a> @ <a>{{ bet.homeTeam }}</a></h3>
+        </div>
+        <div>
+          {{ bet.commenceTime | date: "dd-MM-yyyy" | uppercase }}
+        </div>
+        <div>
+          {{ bet.stadium }}
+        </div>
+        <div>
+          <button mat-flat-button color="primary" routerLink="/bets/take">Take Bet</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</app-list>

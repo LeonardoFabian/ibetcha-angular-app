@@ -8,15 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MatchesListComponent implements OnInit {
 
   constructor() { }
+
   @Input()
   matches;
 
   ngOnInit(): void {
 
-  }
-
-  makeBet(matchId: number) : void{
-    this.matches.splice(matchId, 1);
   }
 
 }
