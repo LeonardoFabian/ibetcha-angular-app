@@ -1,0 +1,120 @@
+<form [formGroup]="form">
+  <div>
+    <mat-radio-group>
+      <mat-label>Select Your Team</mat-label>
+      <mat-radio-button value="away-team">{{ model.awayTeam }}</mat-radio-button>
+      <mat-radio-button value="home-team">{{ model.homeTeam }}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <mat-radio-group>
+      <mat-label>Bet Type</mat-label>
+      <mat-radio-button value="straight-up-win">Straight Up Win</mat-radio-button>
+      <mat-radio-button value="point-spread">Point Spread</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <input formControlName="pointSpreadValue" matInput />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-radio-group>
+      <mat-radio-button value="point-spread-minus">Minus</mat-radio-button>
+      <mat-radio-button value="point-spread-plus">Plus</mat-radio-button>
+      <mat-radio-button value="point-spread-exactly">Exactly</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Modality</mat-label>
+      <mat-select formControlName="modalityId">
+        <mat-option *ngFor="let modality of modalities" value="modality.id">{{ modality.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="text-center"><h3>Bet Details</h3></div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Amount</mat-label>
+          <input formControlName="amount" matInput />
+          <mat-error *ngIf="form.invalid">{{ getErrorAmountField() }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Rate 0.04%</mat-label>
+          <input formControlName="rate" readonly matInput />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Subtotal</mat-label>
+          <input formControlName="subTotal" readonly matInput />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col"></div>
+    <div class="col">
+      <div class="text-center"><h3>Disclosure</h3></div>
+      <div>
+        <p>
+          If bet is not accepted by takers, the funds will be returned to maker within 24 hours since the game started.
+        </p>
+        <p>
+          If balance does not reach the amount you want to bet, or such amount is not sufficient, a refill can take place, by clicking the icons in the middle.
+        </p>
+        <p>
+          Once the bet is accepted by taker the bet cannot be edited or cancelled.
+        </p>
+        <p>
+          Winning bets will be deposit to i-betU Account or Affiliate Bookie Account accordingly within 24hours since the official result has been delivered.
+        </p>
+        <p>
+          When sports event has been Canceled the money will be returned to the account where the bet fund was originated (i-betU Account, Affiliate Bookie Account or Bitcoin Account).
+        </p>
+        <p>
+          Postponed or rescheduled games will remain in full effect until the date.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <button mat-flat-button color="primary" [disabled]="form.invalid">Make Bet</button>
+    <a mat-stroked-button routerLink="/matches">Cancel</a>
+  </div>
+
+</form>
+
+<div class="card">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel title="Share to (close bet)">
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel>
+      <ng-template ngbPanelTitle>
+        <span>Share to i-BetCHA Community (Open)</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
+        aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
+        craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
+        labore sustainable VHS.
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>

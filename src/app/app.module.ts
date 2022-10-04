@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from './material/material.module';
+import { BootstrapModule } from './bootstrap/bootstrap.module';
 import { MenuComponent } from './menu/menu.component';
 import { RatingComponent } from './rating/rating.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -21,6 +22,10 @@ import { TakeBetComponent } from './bets/take-bet/take-bet.component';
 import { SportsIndexComponent } from './sports/sports-index/sports-index.component';
 import { TeamsListComponent } from './teams/teams-list/teams-list.component';
 import { EditTeamComponent } from './teams/edit-team/edit-team.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BetsFormComponent } from './bets/bets-form/bets-form.component';
+import { BetsFilterComponent } from './bets/bets-filter/bets-filter.component';
+import { MatchesFilterComponent } from './matches/matches-filter/matches-filter.component';
 
 @NgModule({
   declarations: [
@@ -38,14 +43,19 @@ import { EditTeamComponent } from './teams/edit-team/edit-team.component';
     TakeBetComponent,
     SportsIndexComponent,
     TeamsListComponent,
-    EditTeamComponent
+    EditTeamComponent,
+    BetsFormComponent,
+    BetsFilterComponent,
+    MatchesFilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule
+    BootstrapModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

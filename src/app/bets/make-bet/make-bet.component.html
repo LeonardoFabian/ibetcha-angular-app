@@ -1,53 +1,7 @@
-<h2>{{ title }}</h2>
+<div class="container">
 
-<form (submit)="make()" [formGroup]="form">
-  <div>
-    <mat-radio-group>
-      <mat-label>Select Your Team</mat-label>
-      <mat-radio-button value="away-team">Away Team</mat-radio-button>
-      <mat-radio-button value="home-team">Home Team</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <div>
-    <mat-radio-group>
-      <mat-label>Bet Type</mat-label>
-      <mat-radio-button value="straight-up-win">Straight Up Win</mat-radio-button>
-      <mat-radio-button value="point-spread">Point Spread</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <div>
-    <mat-form-field appearance="outline">
-      <input formControlName="pointSpreadValue" matInput />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-radio-group>
-      <mat-radio-button value="point-spread-minus">Minus</mat-radio-button>
-      <mat-radio-button value="point-spread-plus">Plus</mat-radio-button>
-      <mat-radio-button value="point-spread-exactly">Exactly</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  <div>
-    <mat-form-field appearance="fill">
-      <mat-label>Category</mat-label>
-      <mat-select>
-        <mat-option value="1-vs-1">1 Vs 1</mat-option>
-        <mat-option value="1-vs-all">1 Vs All</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-form-field appearance="outline">
-      <mat-label>Amount</mat-label>
-      <input formControlName="amount" matInput />
-      <mat-error *ngIf="form.invalid">{{ getErrorAmountField() }}</mat-error>
-    </mat-form-field>
-  </div>
-  <div>
-    <button mat-flat-button color="primary" [disabled]="form.invalid">Make Bet</button>
-    <a mat-stroked-button routerLink="/matches">Cancel</a>
-  </div>
+  <h2>{{ title }}</h2>
 
-</form>
+  <app-bets-form [model]="model" (submit)="makeBet($event)"></app-bets-form>
 
-
+</div>

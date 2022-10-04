@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { makeBetDTO } from '../bets';
 
 @Component({
   selector: 'app-take-bet',
@@ -8,17 +9,23 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TakeBetComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router) { }
+
+  model: makeBetDTO = {
+    homeTeam: 'Los Angeles Lakers',
+    awayTeam: 'Brooklyn Nets',
+    amount: '10000'
+  };
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      // alert(params.id);
-    })
   }
 
-  take() {
+  title = "Take Bet";
+
+  takeBet(bet: makeBetDTO) {
     // ... save bet taken
-    // this.router.navigate(['/bets'])
+    console.log(bet);
+    this.router.navigate(['/bets']);
   }
 
 }

@@ -1,1 +1,7 @@
-<button mat-flat-button color="primary" type="button" (click)="take()">Take Bet</button>
+<div class="container">
+
+  <h2>{{ title }}</h2>
+
+  <app-bets-form [model]="model" (submit)="takeBet($event)"></app-bets-form>
+
+</div>

@@ -1,47 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { makeBetDTO } from '../bets';
 
 @Component({
   selector: 'app-make-bet',
   templateUrl: './make-bet.component.html',
   styleUrls: ['./make-bet.component.css']
 })
-export class MakeBetComponent implements OnInit {
+export class MakeBetComponent {
 
-  constructor(private router: Router, private formBuilder: FormBuilder) { }
+  constructor(private router: Router) { }
 
-  form: FormGroup;
-
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      team: '',
-      type: '',
-      pointSpreadValue: '',
-      amount: ['', {
-        validators: [Validators.required, Validators.minLength(2)]
-      }],
-      category: ''
-    });
-  }
+  model: makeBetDTO = {
+    homeTeam: 'Los Angeles Lakers',
+    awayTeam: 'Brooklyn Nets',
+    amount: ''
+  };
 
   title = 'Make Bet';
 
-  make() {
+  makeBet(bet: makeBetDTO) {
     // ... save bet made
-    this.router.navigate(['/bets'])
-  }
-
-  getErrorAmountField() {
-    var field = this.form.get('amount');
-
-    if (field.hasError('required')) {
-      return 'The amount field is required';
-    }
-    if (field.hasError('minlength')) {
-      return 'The minimun bet amount is ten (10)';
-    }
-    return '';
+    console.log(bet);
+    // this.router.navigate(['/bets'])
   }
 
 }

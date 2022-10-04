@@ -1,0 +1,29 @@
+<div class="container">
+
+  <h2>{{ title }}</h2>
+
+  <form [formGroup]="form">
+
+    <div class="row g-3">
+
+      <div class="col mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Bet</mat-label>
+          <input formControlName="title" matInput>
+        </mat-form-field>
+      </div>
+
+      <div class="col mb-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            <mat-option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
