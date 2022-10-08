@@ -28,15 +28,17 @@ export class BetsFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       teamId: 0,
-      type: '',
+      betTypeId: 0,
       pointSpreadValue: 0,
+      betTypeOptionId: 0,
+      modalityId: 0,
       amount: [0.00, {
         validators: [Validators.required, Validators.minLength(2)]
       }],
       rate: 0.00,
       subTotal: 0.00,
-      modalityId: 0,
-      category: ''
+      category: '',
+      disclosureAccepted: false
     });
 
     if (this.model !== undefined){

@@ -26,6 +26,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BetsFormComponent } from './bets/bets-form/bets-form.component';
 import { BetsFilterComponent } from './bets/bets-filter/bets-filter.component';
 import { MatchesFilterComponent } from './matches/matches-filter/matches-filter.component';
+import { TeamsFormComponent } from './teams/teams-form/teams-form.component';
+import { LeaguesFormComponent } from './leagues/leagues-form/leagues-form.component';
+import { PlayersFormComponent } from './players/players-form/players-form.component';
+import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
+import { SportsFormComponent } from './sports/sports-form/sports-form.component';
+import { CreateSportComponent } from './sports/create-sport/create-sport.component';
+import { EditSportComponent } from './sports/edit-sport/edit-sport.component';
+import { CreateTeamComponent } from './teams/create-team/create-team.component';
+import { CreatePlayerComponent } from './players/create-player/create-player.component';
+import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +56,17 @@ import { MatchesFilterComponent } from './matches/matches-filter/matches-filter.
     EditTeamComponent,
     BetsFormComponent,
     BetsFilterComponent,
-    MatchesFilterComponent
+    MatchesFilterComponent,
+    TeamsFormComponent,
+    LeaguesFormComponent,
+    PlayersFormComponent,
+    CategoriesFormComponent,
+    SportsFormComponent,
+    CreateSportComponent,
+    EditSportComponent,
+    CreateTeamComponent,
+    CreatePlayerComponent,
+    EditPlayerComponent
   ],
   imports: [
     BrowserModule,

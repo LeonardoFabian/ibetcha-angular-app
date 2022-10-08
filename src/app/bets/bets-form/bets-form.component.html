@@ -1,16 +1,16 @@
 <form [formGroup]="form">
   <div>
     <mat-radio-group>
-      <mat-label>Select Your Team</mat-label>
-      <mat-radio-button value="away-team">{{ model.awayTeam }}</mat-radio-button>
-      <mat-radio-button value="home-team">{{ model.homeTeam }}</mat-radio-button>
+      <mat-label>Select Your Team</mat-label><br>
+      <mat-radio-button [value]="1">Away Team</mat-radio-button>
+      <mat-radio-button [value]="2">Home Team</mat-radio-button>
     </mat-radio-group>
   </div>
   <div>
     <mat-radio-group>
-      <mat-label>Bet Type</mat-label>
-      <mat-radio-button value="straight-up-win">Straight Up Win</mat-radio-button>
-      <mat-radio-button value="point-spread">Point Spread</mat-radio-button>
+      <mat-label>Bet Type</mat-label><br>
+      <mat-radio-button [value]="1">Straight Up Win</mat-radio-button>
+      <mat-radio-button [value]="2">Point Spread</mat-radio-button>
     </mat-radio-group>
   </div>
   <div>
@@ -20,16 +20,16 @@
   </div>
   <div>
     <mat-radio-group>
-      <mat-radio-button value="point-spread-minus">Minus</mat-radio-button>
-      <mat-radio-button value="point-spread-plus">Plus</mat-radio-button>
-      <mat-radio-button value="point-spread-exactly">Exactly</mat-radio-button>
+      <mat-radio-button [value]="1">Minus</mat-radio-button>
+      <mat-radio-button [value]="2">Plus</mat-radio-button>
+      <mat-radio-button [value]="3">Exactly</mat-radio-button>
     </mat-radio-group>
   </div>
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Modality</mat-label>
       <mat-select formControlName="modalityId">
-        <mat-option *ngFor="let modality of modalities" value="modality.id">{{ modality.name }}</mat-option>
+        <mat-option *ngFor="let modality of modalities" [value]="modality.id">{{ modality.name }}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
@@ -83,8 +83,11 @@
     </div>
   </div>
 
+  <div class="mb-3">
+    <mat-checkbox formControlName="disclosureAccepted">I have read and accept the disclosure.</mat-checkbox>
+  </div>
 
-  <div>
+  <div class="mb-3">
     <button mat-flat-button color="primary" [disabled]="form.invalid">Make Bet</button>
     <a mat-stroked-button routerLink="/matches">Cancel</a>
   </div>

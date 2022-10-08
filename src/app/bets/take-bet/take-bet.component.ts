@@ -12,9 +12,12 @@ export class TakeBetComponent implements OnInit {
   constructor(private router: Router) { }
 
   model: makeBetDTO = {
-    homeTeam: 'Los Angeles Lakers',
-    awayTeam: 'Brooklyn Nets',
-    amount: '10000'
+    teamId: 0,
+    betTypeId: 0,
+    pointSpreadValue: 500,
+    betTypeOptionId: 0,
+    modalityId: 1,
+    amount: 1500
   };
 
   ngOnInit(): void {

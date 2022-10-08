@@ -39,9 +39,19 @@
         </mat-form-field>
       </div>
 
+    </div>
 
+    <div class="d-flex justify-content-start gap-3 mb-3">
+      <mat-checkbox formControlName="todayMatches">Today matches</mat-checkbox>
+      <mat-checkbox formControlName="upcomingMatches">Upcoming matches</mat-checkbox>
+    </div>
+
+    <div class="mb-3">
+      <button mat-flat-button (click)="clear()" color="warn">Clear</button>
     </div>
 
   </form>
+
+  <app-matches-list [matches]="matches"></app-matches-list>
 
 </div>

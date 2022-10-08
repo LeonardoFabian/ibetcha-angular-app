@@ -13,9 +13,12 @@ export class MakeBetComponent {
   constructor(private router: Router) { }
 
   model: makeBetDTO = {
-    homeTeam: 'Los Angeles Lakers',
-    awayTeam: 'Brooklyn Nets',
-    amount: ''
+    teamId: 0,
+    betTypeId: 0,
+    pointSpreadValue: 0,
+    betTypeOptionId: 0,
+    modalityId: 0,
+    amount: 0
   };
 
   title = 'Make Bet';

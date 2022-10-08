@@ -1,0 +1,16 @@
+<h2>{{ title }}</h2>
+
+<form (submit)="store()" [formGroup]="form">
+
+  <mat-form-field appearance="outline" class="mb-3">
+    <mat-label>Name</mat-label>
+    <input formControlName="name" matInput>
+    <mat-error *ngIf="form.invalid">{{ getNameFieldError() }}</mat-error>
+  </mat-form-field>
+
+  <div class="d-flex gap-3 mb-3">
+    <button mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
+    <a mat-stroked-button routerLink="/teams">Cancel</a>
+  </div>
+
+</form>

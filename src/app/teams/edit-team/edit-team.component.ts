@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { teamsCreateDTO } from '../teams';
 
 @Component({
   selector: 'app-edit-team',
@@ -8,16 +9,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditTeamComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute) { }
+  constructor(private router: Router) { }
+
+  model: teamsCreateDTO = {name: 'Los Angeles Lakers'};
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params => {
-      // alert(params.id);
-    })
   }
 
-  update() {
+  store(team: teamsCreateDTO) {
     // ... update team data
+    console.log(team);
+    this.router.navigate(['/teams']);
   }
+
+  title = 'Edit Team';
 
 }
