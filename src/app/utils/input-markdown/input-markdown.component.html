@@ -3,11 +3,11 @@
   <mat-tab label="Edit">
     <mat-form-field appearance="fill">
       <mat-label>Content</mat-label>
-      <textarea (input)="inputTextArea($event.target.value)" matInput rows="10"></textarea>
+      <textarea (input)="inputTextArea($event.target.value)" matInput rows="20"></textarea>
     </mat-form-field>
   </mat-tab>
 
   <mat-tab label="Preview">
-    <markdown [data]="markdownContent" ngPreserveWhitespaces ></markdown>
+    <markdown [data]="markdownContent" ngPreserveWhitespaces class="markdown-preview"></markdown>
   </mat-tab>
 </mat-tab-group>

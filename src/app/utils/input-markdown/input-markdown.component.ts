@@ -18,7 +18,7 @@ export class InputMarkdownComponent implements OnInit {
   }
 
   inputTextArea(content: string) {
-    console.log(content);
+    // console.log(content);
     this.markdownContent = content;
     this.changeMarkdown.emit(content);
   }
