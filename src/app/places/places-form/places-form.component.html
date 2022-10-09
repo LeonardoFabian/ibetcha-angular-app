@@ -14,6 +14,11 @@
         <mat-error *ngIf="form.invalid" >{{ getNameFieldError() }}</mat-error>
       </mat-form-field>
 
+      <h4>Select the location on the map:</h4>
+      <div class="mb-3">
+        <app-map [modelCoordinates]="placeCoordinates" (coordinates)="selectedCoordinates($event)"></app-map>
+      </div>
+
       <div class="d-flex gap-3 mb-3">
         <button mat-flat-button color="primary" [disabled]="form.invalid" >Save</button>
         <a mat-raised-button routerLink="/places">Cancel</a>

@@ -8,6 +8,8 @@ import { ListComponent } from './utils/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+// import "leaflet/dist/images/marker-shadow.png";
 
 import { MaterialModule } from './material/material.module';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
@@ -54,6 +56,7 @@ import { PlacesFormComponent } from './places/places-form/places-form.component'
 import { CreatePlaceComponent } from './places/create-place/create-place.component';
 import { EditPlaceComponent } from './places/edit-place/edit-place.component';
 import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
+import { MapComponent } from './utils/map/map.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +104,8 @@ import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
     PlacesFormComponent,
     CreatePlaceComponent,
     EditPlaceComponent,
-    PostsIndexComponent
+    PostsIndexComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -111,6 +115,7 @@ import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
     BootstrapModule,
     ReactiveFormsModule,
     NgbModule,
+    LeafletModule,
     MarkdownModule.forRoot()
   ],
   providers: [],
