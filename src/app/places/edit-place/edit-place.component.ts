@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { placeCreateDTO, placeDTO } from '../places';
 
 @Component({
@@ -8,7 +9,7 @@ import { placeCreateDTO, placeDTO } from '../places';
 })
 export class EditPlaceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   model: placeDTO = {
     name: 'Crypto.com Arena',
@@ -16,6 +17,9 @@ export class EditPlaceComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      // alert(params.id);
+    })
   }
 
   title = 'Edit Place';

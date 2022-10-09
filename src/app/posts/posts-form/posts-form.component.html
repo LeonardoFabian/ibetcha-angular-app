@@ -1,9 +1,9 @@
 <h2>{{ title }}</h2>
 
-<form (submit)="onSubmit()" [formGroup]="form">
+<form (submit)="OnSubmit()" [formGroup]="form">
 
-  <div class="d-flex gap-4">
-    <div class="col-12 col-md-9">
+  <div class="d-flex flex-wrap">
+    <div class="col-12 col-md-8">
 
       <mat-form-field appearance="outline">
         <mat-label>Title</mat-label>
@@ -18,14 +18,14 @@
 
       <app-input-markdown (changeMarkdown)="handleChange($event)"></app-input-markdown>
 
-      <div class="d-flex gap-3">
+      <div class="d-flex gap-3 mb-3">
         <button mat-flat-button color="primary" [disabled]="form.invalid" >Save</button>
         <a mat-raised-button routerLink="/posts">Cancel</a>
       </div>
 
     </div>
 
-    <div class="col-12 col-md-3">
+    <div class="col-12 col-md-3 offset-md-1">
       <mat-form-field appearance="outline" class="mb-3">
         <mat-label>Post Date</mat-label>
         <input formControlName="postDate" matInput [matDatepicker]="postDate" />
@@ -40,7 +40,7 @@
         </mat-select>
       </mat-form-field>
 
-      <app-input-img [currentImageURL]="model" (image)="selectedImage($event)"></app-input-img>
+      <app-input-img [currentImageURL]="model?.image" (image)="selectedImage($event)"></app-input-img>
       
     </div>
 

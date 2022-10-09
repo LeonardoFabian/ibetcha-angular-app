@@ -2,7 +2,7 @@ export interface postDTO {
   title: string;
   slug: string;
   content: string;
-  featuredImage: string;
+  image: string;
   postDate: Date;
   statusId: number;
 }
@@ -11,7 +11,7 @@ export interface postCreateDTO {
   title: string;
   slug: string;
   content: string;
-  featuredImage: File;
+  image: File;
   postDate: Date;
   statusId: number;
 }

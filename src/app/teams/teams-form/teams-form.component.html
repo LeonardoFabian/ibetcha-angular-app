@@ -2,12 +2,12 @@
 
 <form (submit)="store()" [formGroup]="form">
 
-  <div class="d-flex gap-4">
-    <div class="col-12 col-md-2">
+  <div class="d-flex flex-wrap">
+    <div class="col-12 col-md-3">
       <app-input-img [currentImageURL]="model?.logo" (image)="selectedImage($event)"></app-input-img>
     </div>
 
-    <div class="col-12 col-md-10">
+    <div class="col-12 col-md-8 offset-md-1">
 
       <div class="d-flex gap-3">
         <mat-form-field appearance="outline" class="col mb-3">

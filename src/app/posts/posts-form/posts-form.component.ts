@@ -24,7 +24,7 @@ export class PostsFormComponent implements OnInit {
   model: postDTO;
 
   @Output()
-  OnSubmit: EventEmitter<postCreateDTO> = new EventEmitter<postCreateDTO>();
+  onSubmit: EventEmitter<postCreateDTO> = new EventEmitter<postCreateDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -33,7 +33,7 @@ export class PostsFormComponent implements OnInit {
       }],
       slug: '',
       content: '',
-      featuredImage: '',
+      image: '',
       postDate: new Date,
       statusId: 1
     });
@@ -46,15 +46,15 @@ export class PostsFormComponent implements OnInit {
   title = 'Posts Form';
 
   selectedImage(file) {
-    this.form.get('featuredImage').setValue(file);
+    this.form.get('image').setValue(file);
   }
 
   handleChange(content: string) {
     this.form.get('content').setValue(content);
   }
 
-  onSubmit() {
-    this.OnSubmit.emit(this.form.value);
+  OnSubmit() {
+    this.onSubmit.emit(this.form.value);
   }
 
   getTitleFieldError() {

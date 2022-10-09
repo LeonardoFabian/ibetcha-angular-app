@@ -53,6 +53,7 @@ import { PlacesIndexComponent } from './places/places-index/places-index.compone
 import { PlacesFormComponent } from './places/places-form/places-form.component';
 import { CreatePlaceComponent } from './places/create-place/create-place.component';
 import { EditPlaceComponent } from './places/edit-place/edit-place.component';
+import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
 
 @NgModule({
   declarations: [
@@ -99,7 +100,8 @@ import { EditPlaceComponent } from './places/edit-place/edit-place.component';
     PlacesIndexComponent,
     PlacesFormComponent,
     CreatePlaceComponent,
-    EditPlaceComponent
+    EditPlaceComponent,
+    PostsIndexComponent
   ],
   imports: [
     BrowserModule,

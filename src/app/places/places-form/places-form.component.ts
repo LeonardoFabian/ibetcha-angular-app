@@ -35,6 +35,10 @@ export class PlacesFormComponent implements OnInit {
 
   title = 'Places Form';
 
+  selectedImage(file) {
+    this.form.get('photo').setValue(file);
+  }
+
   OnSubmit() {
     this.onSubmit.emit(this.form.value);
   }
