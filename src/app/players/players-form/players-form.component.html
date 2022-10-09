@@ -2,45 +2,71 @@
 
 <form (submit)="onSubmit()" [formGroup]="form">
 
-  <div class="d-flex gap-3">
-    <mat-form-field appearance="outline" class="mb-3">
-      <mat-label>Name</mat-label>
-      <input formControlName="name" matInput>
-      <mat-error *ngIf="form.invalid">{{ getNameFieldError() }}</mat-error>
-    </mat-form-field>
+  <div class="d-flex gap-4">
 
-    <mat-form-field appearance="outline">
-      <mat-label>Birthday</mat-label>
-      <input formControlName="birthday" matInput [matDatepicker]="playerbirthday" />
-      <mat-datepicker-toggle matSuffix [for]="playerbirthday" ></mat-datepicker-toggle>
-      <mat-datepicker #playerbirthday></mat-datepicker>
-    </mat-form-field>
-  </div>
+    <div class="col-12 col-md-2">
+      <app-input-img [currentImageURL]="model?.photo" (image)="selectedImage($event)"></app-input-img>
+    </div>
 
-  <div class="d-flex gap-3">
-    <mat-form-field appearance="outline" class="mb-3">
-      <mat-label>Sport</mat-label>
-      <mat-select formControlName="sportId">
-        <mat-option *ngFor="let sport of sports" [value]="sport.id">{{ sport.name }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div class="col-12 col-md-10">
 
-    <mat-form-field appearance="outline" class="mb-3">
-      <mat-label>Team</mat-label>
-      <mat-select formControlName="teamId">
-        <mat-option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="mb-3">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput>
+        <mat-error *ngIf="form.invalid">{{ getNameFieldError() }}</mat-error>
+      </mat-form-field>
 
-    <mat-form-field appearance="outline" class="mb-3">
-      <mat-label>Number</mat-label>
-      <input formControlName="number" matInput>
-    </mat-form-field>
-  </div>
+      <div class="d-flex gap-3">        
+    
+        <mat-form-field appearance="outline">
+          <mat-label>Birthday</mat-label>
+          <input formControlName="birthday" matInput [matDatepicker]="playerbirthday" />
+          <mat-datepicker-toggle matSuffix [for]="playerbirthday" ></mat-datepicker-toggle>
+          <mat-datepicker #playerbirthday></mat-datepicker>
+        </mat-form-field>
 
-  <div class="d-flex gap-3">
-    <button mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
-    <a mat-stroked-button routerLink="/players">Cancel</a>
+        <mat-form-field appearance="outline" class="col-2">
+          <mat-label>Height</mat-label>
+          <mat-select formControlName="heightId">
+            <mat-option *ngFor="let height of heights" [value]="height.id" >{{ height.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="col-2">
+          <mat-label>Weight</mat-label>
+          <mat-select formControlName="weightId">
+            <mat-option *ngFor="let weight of weights" [value]="weight.id" >{{ weight.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    
+      <div class="d-flex gap-3">
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Sport</mat-label>
+          <mat-select formControlName="sportId">
+            <mat-option *ngFor="let sport of sports" [value]="sport.id">{{ sport.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Team</mat-label>
+          <mat-select formControlName="teamId">
+            <mat-option *ngFor="let team of teams" [value]="team.id">{{ team.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="mb-3">
+          <mat-label>Number</mat-label>
+          <input formControlName="number" matInput>
+        </mat-form-field>
+      </div>
+    
+      <div class="d-flex gap-3">
+        <button mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
+        <a mat-stroked-button routerLink="/players">Cancel</a>
+      </div>
+
+    </div>
   </div>
 
 </form>

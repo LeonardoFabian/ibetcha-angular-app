@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { playersCreateDTO } from '../players';
+import { playersCreateDTO, playersDTO } from '../players';
 
 @Component({
   selector: 'app-edit-player',
@@ -10,12 +10,15 @@ export class EditPlayerComponent implements OnInit {
 
   constructor() { }
 
-  model: playersCreateDTO = {
+  model: playersDTO = {
     name: 'LeBron James',
     birthday: new Date(),
+    height: 2,
+    weight: 2,
     sportId: 2,
     teamId: 1,
-    number: 6
+    number: 6,
+    photo: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/1966.png'
   };
 
   ngOnInit(): void {

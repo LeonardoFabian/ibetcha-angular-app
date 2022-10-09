@@ -1,1 +1,17 @@
-<p>input-img works!</p>
+
+<div class="mb-3 file-image">
+  <div *ngIf="imageBase64">
+    <img [src]="imageBase64" alt="Image" class="img-fluid">
+  </div>
+
+  <div *ngIf="currentImageURL">
+    <img [src]="currentImageURL" alt="Image" class="img-fluid">
+  </div>
+</div>
+
+<div>
+  <button type="button" mat-raised-button (click)="imageInput.click()">
+    Select an image
+  </button>
+  <input type="file" hidden #imageInput (change)="change($event)" />
+</div>

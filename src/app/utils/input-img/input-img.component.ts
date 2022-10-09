@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { toBase64 } from '../helpers';
 
 @Component({
   selector: 'app-input-img',
@@ -9,7 +10,30 @@ export class InputImgComponent implements OnInit {
 
   constructor() { }
 
+  imageBase64: string;
+
+  @Input()
+  currentImageURL: string;
+
+  @Output()
+  image: EventEmitter<File> = new EventEmitter<File>();
+
   ngOnInit(): void {
+  }
+
+  change(event) {
+    if (event.target.files.length > 0) {
+
+      const file: File = event.target.files[0];
+
+      toBase64(file).then((value: string) => this.imageBase64 = value)
+      .catch(error => console.log(error));
+
+      this.image.emit(file);
+
+      this.currentImageURL = null;
+
+    }
   }
 
 }

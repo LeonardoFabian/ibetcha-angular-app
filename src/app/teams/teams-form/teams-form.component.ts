@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { teamsCreateDTO } from '../teams';
+import { teamsCreateDTO, teamsDTO } from '../teams';
 
 @Component({
   selector: 'app-teams-form',
@@ -13,6 +13,15 @@ export class TeamsFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   form: FormGroup;
+
+  stadiums = [
+    {id: 1, name: 'Crypto Center'},
+    {id: 2, name: 'Barclays Center'},
+    {id: 3, name: 'Yankee Stadium'},
+    {id: 4, name: 'Fenway Park'},
+    {id: 5, name: 'Estadio Quisqueya Juan Marichal'},
+    {id: 6, name: 'Estadio Cibao'},
+  ]
 
   countries = [
     {id: 1, name: 'United States'},
@@ -38,7 +47,7 @@ export class TeamsFormComponent implements OnInit {
   ];
 
   @Input()
-  model: teamsCreateDTO;
+  model: teamsDTO;
 
   @Output()
   submit: EventEmitter<teamsCreateDTO> = new EventEmitter<teamsCreateDTO>();
@@ -48,9 +57,14 @@ export class TeamsFormComponent implements OnInit {
       name: ['', {
         validators: [Validators.required, Validators.minLength(3), firstLetterUppercase()]
       }],
+      shortName: '',
+      stadiumId: 0,
       countryId: 0,
       sportId: 0,
-      leagueId: 0
+      leagueId: 0,
+      logo: '',
+      colorPrimary: '',
+      colorSecondary: ''
     });
 
     if (this.model !== undefined) {
@@ -59,6 +73,10 @@ export class TeamsFormComponent implements OnInit {
   }
 
   title = 'Teams Form';
+
+  selectedImage(file) {
+    this.form.get('logo').setValue(file);
+  }
 
   store() {
     this.submit.emit(this.form.value);

@@ -41,6 +41,7 @@ import { EditCategoryComponent } from './categories/edit-category/edit-category.
 import { PlayersIndexComponent } from './players/players-index/players-index.component';
 import { CategoriesIndexComponent } from './categories/categories-index/categories-index.component';
 import { InputImgComponent } from './utils/input-img/input-img.component';
+import { InputMarkdownComponent } from './utils/input-markdown/input-markdown.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { InputImgComponent } from './utils/input-img/input-img.component';
     EditCategoryComponent,
     PlayersIndexComponent,
     CategoriesIndexComponent,
-    InputImgComponent
+    InputImgComponent,
+    InputMarkdownComponent
   ],
   imports: [
     BrowserModule,

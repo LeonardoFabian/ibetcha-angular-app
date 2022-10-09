@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { playersCreateDTO } from '../players';
+import { playersCreateDTO, playersDTO } from '../players';
 
 @Component({
   selector: 'app-players-form',
@@ -15,10 +15,20 @@ export class PlayersFormComponent implements OnInit {
   form: FormGroup;
 
   @Input()
-  model: playersCreateDTO;
+  model: playersDTO;
 
   @Output()
   submit: EventEmitter<playersCreateDTO> = new EventEmitter<playersCreateDTO>();
+
+  heights = [
+    {id: 1, name: '6 ft 6 in', value: '1.98 m'},
+    {id: 1, name: '6 ft 9 in', value: '2.06 m'},
+  ];
+
+  weights = [
+    {id: 1, name: '212 lb', value: '96 kg'},
+    {id: 1, name: '250 lb', value: '113 kg'},
+  ]
 
   sports = [
     {id: 1, name: 'Baseball'},
@@ -42,9 +52,12 @@ export class PlayersFormComponent implements OnInit {
         validators: [Validators.required, firstLetterUppercase()]
       }],
       birthday: '',
+      heightId: 0,
+      weightId: 0,
       sportId: 0,
       number: 0,
-      teamId: 0
+      teamId: 0,
+      photo: ''
     });
 
     if (this.model !== undefined) {
@@ -53,6 +66,10 @@ export class PlayersFormComponent implements OnInit {
   }
 
   title = 'Players Form';
+
+  selectedImage(file) {
+    this.form.get('photo').setValue(file);
+  }
 
   onSubmit() {
     this.submit.emit(this.form.value);

@@ -1,0 +1,12 @@
+.file-image {
+  width: 150px;
+  height: 150px;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.file-image img {
+  width: 150px;
+  /* object-fit: fill; */
+}
