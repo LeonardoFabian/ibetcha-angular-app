@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { playersCreateDTO } from '../players';
 
 @Component({
   selector: 'app-create-player',
@@ -10,6 +11,12 @@ export class CreatePlayerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  title = 'Create Player';
+
+  store(player: playersCreateDTO) {
+    console.log(player);
   }
 
 }

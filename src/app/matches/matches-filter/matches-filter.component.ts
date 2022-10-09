@@ -60,6 +60,8 @@ export class MatchesFilterComponent implements OnInit {
     leagueId: 0,
     teamId: 0,
     stadiumId: 0,
+    startDate: '',
+    endDate: '',
     todayMatches: false,
     upcomingMatches: false,
   }

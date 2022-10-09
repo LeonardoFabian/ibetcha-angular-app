@@ -36,6 +36,11 @@ import { EditSportComponent } from './sports/edit-sport/edit-sport.component';
 import { CreateTeamComponent } from './teams/create-team/create-team.component';
 import { CreatePlayerComponent } from './players/create-player/create-player.component';
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
+import { CreateCategoryComponent } from './categories/create-category/create-category.component';
+import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+import { PlayersIndexComponent } from './players/players-index/players-index.component';
+import { CategoriesIndexComponent } from './categories/categories-index/categories-index.component';
+import { InputImgComponent } from './utils/input-img/input-img.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +71,12 @@ import { EditPlayerComponent } from './players/edit-player/edit-player.component
     EditSportComponent,
     CreateTeamComponent,
     CreatePlayerComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    CreateCategoryComponent,
+    EditCategoryComponent,
+    PlayersIndexComponent,
+    CategoriesIndexComponent,
+    InputImgComponent
   ],
   imports: [
     BrowserModule,

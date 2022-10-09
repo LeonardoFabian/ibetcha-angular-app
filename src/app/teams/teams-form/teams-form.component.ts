@@ -14,6 +14,29 @@ export class TeamsFormComponent implements OnInit {
 
   form: FormGroup;
 
+  countries = [
+    {id: 1, name: 'United States'},
+    {id: 2, name: 'Brazil'},
+    {id: 3, name: 'Spain'},
+    {id: 4, name: 'Dominican Republic'},
+  ];
+
+  sports = [
+    {id: 1, name: 'Baseball'},
+    {id: 2, name: 'Basketball'},
+    {id: 3, name: 'Soccer'},
+    {id: 4, name: 'Tennis'},
+  ];
+
+  leagues = [
+    {id: 1, name: 'MLB'},
+    {id: 2, name: 'NBA'},
+    {id: 3, name: 'NCAA'},
+    {id: 4, name: 'NFL'},
+    {id: 5, name: 'LIDOM'},
+    {id: 6, name: 'Mundial de Fútbol'},
+  ];
+
   @Input()
   model: teamsCreateDTO;
 
@@ -24,7 +47,10 @@ export class TeamsFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', {
         validators: [Validators.required, Validators.minLength(3), firstLetterUppercase()]
-      }]
+      }],
+      countryId: 0,
+      sportId: 0,
+      leagueId: 0
     });
 
     if (this.model !== undefined) {

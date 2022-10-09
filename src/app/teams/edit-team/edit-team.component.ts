@@ -11,7 +11,12 @@ export class EditTeamComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  model: teamsCreateDTO = {name: 'Los Angeles Lakers'};
+  model: teamsCreateDTO = {
+    name: 'Los Angeles Lakers',
+    countryId: 1,
+    sportId: 2,
+    leagueId: 2
+  };
 
   ngOnInit(): void {
   }
