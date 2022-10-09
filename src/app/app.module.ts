@@ -7,6 +7,7 @@ import { MatchesListComponent } from './matches/matches-list/matches-list.compon
 import { ListComponent } from './utils/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { MaterialModule } from './material/material.module';
 import { BootstrapModule } from './bootstrap/bootstrap.module';
@@ -42,6 +43,16 @@ import { PlayersIndexComponent } from './players/players-index/players-index.com
 import { CategoriesIndexComponent } from './categories/categories-index/categories-index.component';
 import { InputImgComponent } from './utils/input-img/input-img.component';
 import { InputMarkdownComponent } from './utils/input-markdown/input-markdown.component';
+import { PostsFormComponent } from './posts/posts-form/posts-form.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { CreateLeagueComponent } from './leagues/create-league/create-league.component';
+import { EditLeagueComponent } from './leagues/edit-league/edit-league.component';
+import { LeaguesIndexComponent } from './leagues/leagues-index/leagues-index.component';
+import { PlacesIndexComponent } from './places/places-index/places-index.component';
+import { PlacesFormComponent } from './places/places-form/places-form.component';
+import { CreatePlaceComponent } from './places/create-place/create-place.component';
+import { EditPlaceComponent } from './places/edit-place/edit-place.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +89,17 @@ import { InputMarkdownComponent } from './utils/input-markdown/input-markdown.co
     PlayersIndexComponent,
     CategoriesIndexComponent,
     InputImgComponent,
-    InputMarkdownComponent
+    InputMarkdownComponent,
+    PostsFormComponent,
+    CreatePostComponent,
+    EditPostComponent,
+    CreateLeagueComponent,
+    EditLeagueComponent,
+    LeaguesIndexComponent,
+    PlacesIndexComponent,
+    PlacesFormComponent,
+    CreatePlaceComponent,
+    EditPlaceComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +108,8 @@ import { InputMarkdownComponent } from './utils/input-markdown/input-markdown.co
     MaterialModule,
     BootstrapModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

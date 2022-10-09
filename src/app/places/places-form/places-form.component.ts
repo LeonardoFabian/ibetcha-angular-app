@@ -1,48 +1,31 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { leagueCreateDTO, leagueDTO } from '../leagues';
+import { placeCreateDTO, placeDTO } from '../places';
 
 @Component({
-  selector: 'app-leagues-form',
-  templateUrl: './leagues-form.component.html',
-  styleUrls: ['./leagues-form.component.css']
+  selector: 'app-places-form',
+  templateUrl: './places-form.component.html',
+  styleUrls: ['./places-form.component.css']
 })
-export class LeaguesFormComponent implements OnInit {
+export class PlacesFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
   form: FormGroup;
 
   @Input()
-  model: leagueDTO
+  model: placeDTO;
 
   @Output()
-  onSubmit: EventEmitter<leagueCreateDTO> = new EventEmitter<leagueCreateDTO>();
-
-  countries = [
-    {id: 1, name: 'United States'},
-    {id: 2, name: 'Brazil'},
-    {id: 3, name: 'Spain'},
-    {id: 4, name: 'Dominican Republic'},
-  ];
-
-  sports = [
-    {id: 1, name: 'Baseball'},
-    {id: 2, name: 'Basketball'},
-    {id: 3, name: 'Soccer'},
-    {id: 4, name: 'Tennis'},
-  ];
+  onSubmit: EventEmitter<placeCreateDTO> = new EventEmitter<placeCreateDTO>(); 
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', {
         validators: [Validators.required, firstLetterUppercase()]
       }],
-      shortName: '',
-      countryId: 0,
-      sportId: 0,
-      logo: ''
+      photo: ''
     });
 
     if (this.model !== undefined) {
@@ -50,7 +33,7 @@ export class LeaguesFormComponent implements OnInit {
     }
   }
 
-  title = 'Leagues Form';
+  title = 'Places Form';
 
   OnSubmit() {
     this.onSubmit.emit(this.form.value);
@@ -60,7 +43,7 @@ export class LeaguesFormComponent implements OnInit {
     var field = this.form.get('name');
 
     if (field.hasError('required')) {
-      return 'The league name is required';
+      return 'The place name is required';
     }
 
     if (field.hasError('firstLetterUppercase')) {

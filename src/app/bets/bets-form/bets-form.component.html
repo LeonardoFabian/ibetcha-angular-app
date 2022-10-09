@@ -38,22 +38,28 @@
     <div class="col">
       <div class="text-center"><h3>Bet Details</h3></div>
       <div>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" floatLabel="always">
           <mat-label>Amount</mat-label>
-          <input formControlName="amount" matInput />
+          <input formControlName="amount" matInput type="number" />
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
           <mat-error *ngIf="form.invalid">{{ getErrorAmountField() }}</mat-error>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill" floatLabel="always">
           <mat-label>Rate 0.04%</mat-label>
-          <input formControlName="rate" readonly matInput />
+          <input formControlName="rate" readonly matInput type="number" />
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
         </mat-form-field>
       </div>
       <div>
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="fill" floatLabel="always">
           <mat-label>Subtotal</mat-label>
-          <input formControlName="subTotal" readonly matInput />
+          <input formControlName="subTotal" readonly matInput type="number" />
+          <span matPrefix>$&nbsp;</span>
+          <span matSuffix>.00</span>
         </mat-form-field>
       </div>
     </div>

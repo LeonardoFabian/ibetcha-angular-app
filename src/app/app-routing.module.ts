@@ -8,11 +8,19 @@ import { CategoriesIndexComponent } from './categories/categories-index/categori
 import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { CreateLeagueComponent } from './leagues/create-league/create-league.component';
+import { EditLeagueComponent } from './leagues/edit-league/edit-league.component';
+import { LeaguesIndexComponent } from './leagues/leagues-index/leagues-index.component';
 import { MatchesFilterComponent } from './matches/matches-filter/matches-filter.component';
 import { MatchesIndexComponent } from './matches/matches-index/matches-index.component';
+import { CreatePlaceComponent } from './places/create-place/create-place.component';
+import { EditPlaceComponent } from './places/edit-place/edit-place.component';
+import { PlacesIndexComponent } from './places/places-index/places-index.component';
 import { CreatePlayerComponent } from './players/create-player/create-player.component';
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 import { PlayersIndexComponent } from './players/players-index/players-index.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { CreateSportComponent } from './sports/create-sport/create-sport.component';
 import { EditSportComponent } from './sports/edit-sport/edit-sport.component';
 import { SportsIndexComponent } from './sports/sports-index/sports-index.component';
@@ -27,6 +35,13 @@ const routes: Routes = [
   {path: 'sports', component: SportsIndexComponent},
   {path: 'sports/create', component: CreateSportComponent},
   {path: 'sports/edit/:id', component: EditSportComponent},
+  {path: 'leagues', component: LeaguesIndexComponent},
+  {path: 'leagues/create', component: CreateLeagueComponent},
+  {path: 'leagues/edit/:id', component: EditLeagueComponent},
+  {path: 'places', component: PlacesIndexComponent},
+  {path: 'places/create', component: CreatePlaceComponent},
+  {path: 'places/edit/:id', component: EditPlaceComponent},
+
   {path: 'bets', component: BetsIndexComponent},
   {path: 'bets/make', component: MakeBetComponent},
   {path: 'bets/take/:id', component: TakeBetComponent},
@@ -39,6 +54,9 @@ const routes: Routes = [
   {path: 'players', component: PlayersIndexComponent},
   {path: 'players/create', component: CreatePlayerComponent},
   {path: 'players/edit/:id', component: EditPlayerComponent},
+
+  {path: 'posts/create', component: CreatePostComponent},
+  {path: 'posts/edit/:id', component: EditPostComponent},
   {path: '**', redirectTo: ''}
 ];
 

@@ -1,0 +1,23 @@
+<h2>{{ title }}</h2>
+
+<form (submit)="OnSubmit()" [formGroup]="form">
+  
+  <div class="d-flex gap-4">
+    <div class="col-12 col-md-2">
+      <app-input-img></app-input-img>
+    </div>
+
+    <div class="col-12 col-md-10">
+      <mat-form-field appearance="outline" class="mb-3">
+        <mat-label>Name</mat-label>
+        <input formControlName="name" matInput />
+        <mat-error *ngIf="form.invalid" >{{ getNameFieldError() }}</mat-error>
+      </mat-form-field>
+
+      <div class="d-flex gap-3">
+        <button mat-flat-button color="primary" [disabled]="form.invalid" >Save</button>
+        <a mat-raised-button routerLink="/places">Cancel</a>
+      </div>
+    </div>
+  </div>
+</form>
