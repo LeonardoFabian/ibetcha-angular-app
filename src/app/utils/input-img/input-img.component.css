@@ -1,13 +1,13 @@
 .file-image {
   width: 100%;
-  height: 160px;
+  height: 200px;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
 .file-image img {
-  height: 160px;
+  /* height: 160px; */
   /* width: auto; */
   object-fit: cover;
 }

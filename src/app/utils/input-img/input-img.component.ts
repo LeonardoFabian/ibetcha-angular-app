@@ -15,6 +15,15 @@ export class InputImgComponent implements OnInit {
   @Input()
   currentImageURL: string;
 
+  @Input()
+  buttonText: string = 'Select an image';
+
+  @Input()
+  width: string = '150px';
+
+  @Input()
+  height: string = '150px';
+
   @Output()
   image: EventEmitter<File> = new EventEmitter<File>();
 

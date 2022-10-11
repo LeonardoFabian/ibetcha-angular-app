@@ -1,6 +1,12 @@
-<div class="container">
+<!-- Page Header -->
+<div class="p-5 text-center bg-light mb-3">
+  <h1>{{ title }}</h1>
+  <h4 class="mb-3">This form allows you to place bets on upcoming matches, either against a group of users or against the user of your choice.</h4>
+  <a mat-raised-button routerLink="/matches">See all matches</a>
+</div>
+<!-- Page Header -->  
 
-  <h2>{{ title }}</h2>
+<div class="container">  
 
   <app-bets-form [model]="model" (submit)="makeBet($event)"></app-bets-form>
 

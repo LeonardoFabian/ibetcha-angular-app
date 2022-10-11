@@ -1,3 +1,8 @@
-.markdown-preview {
+.preview {
+  padding: 2rem 0;
+  height: auto;
+}
+
+.preview .markdown-preview {
   padding: 2rem;
 }

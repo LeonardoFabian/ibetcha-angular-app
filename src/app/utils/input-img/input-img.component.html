@@ -1,4 +1,4 @@
-<div class="mb-3 file-image">
+<div class="mb-3 file-image" [ngStyle]="{ width:  width, height: height }">
   <div *ngIf="imageBase64">
     <img [src]="imageBase64" alt="Image" class="img-fluid" />
   </div>
@@ -10,7 +10,7 @@
 
 <div class="mb-3">
   <button type="button" mat-raised-button (click)="imageInput.click()">
-    Select an image
+    {{ buttonText }}
   </button>
   <input type="file" hidden #imageInput (change)="change($event)" />
 </div>

@@ -1,30 +1,30 @@
 <form [formGroup]="form">
-  <div>
-    <mat-radio-group>
-      <mat-label>Select Your Team</mat-label><br>
-      <mat-radio-button [value]="1">Away Team</mat-radio-button>
-      <mat-radio-button [value]="2">Home Team</mat-radio-button>
+  <div class="mb-4">
+    <h4>Select Your Team</h4>
+    <mat-radio-group class="d-flex gap-3" formControlName="teamId">
+      <mat-radio-button *ngFor="let team of teams" [value]="team.id">{{ team.name }}</mat-radio-button>
     </mat-radio-group>
   </div>
-  <div>
-    <mat-radio-group>
-      <mat-label>Bet Type</mat-label><br>
-      <mat-radio-button [value]="1">Straight Up Win</mat-radio-button>
-      <mat-radio-button [value]="2">Point Spread</mat-radio-button>
+  <div class="mb-4">
+    <h4>Bet Type</h4>
+    <mat-radio-group class="d-flex gap-3" formControlName="betTypeId" >
+      <mat-radio-button *ngFor="let betType of betTypes" [value]="betType.id">{{ betType.name }}</mat-radio-button>
     </mat-radio-group>
+    <div>
+      <mat-form-field appearance="outline">
+        <input formControlName="pointSpreadValue" matInput />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-radio-group class="d-flex gap-3" formControlName="betTypeOptionId" >
+        <mat-radio-button [value]="1">Minus</mat-radio-button>
+        <mat-radio-button [value]="2">Plus</mat-radio-button>
+        <mat-radio-button [value]="3">Exactly</mat-radio-button>
+      </mat-radio-group>
+    </div>
   </div>
-  <div>
-    <mat-form-field appearance="outline">
-      <input formControlName="pointSpreadValue" matInput />
-    </mat-form-field>
-  </div>
-  <div>
-    <mat-radio-group>
-      <mat-radio-button [value]="1">Minus</mat-radio-button>
-      <mat-radio-button [value]="2">Plus</mat-radio-button>
-      <mat-radio-button [value]="3">Exactly</mat-radio-button>
-    </mat-radio-group>
-  </div>
+
+
   <div>
     <mat-form-field appearance="outline">
       <mat-label>Modality</mat-label>
@@ -35,7 +35,7 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-12 col-md-4">
       <div class="text-center"><h3>Bet Details</h3></div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always">
@@ -63,27 +63,12 @@
         </mat-form-field>
       </div>
     </div>
-    <div class="col"></div>
-    <div class="col">
+    <div class="col-12 col-md-4"></div>
+    <div class="col-12 col-md-4">
       <div class="text-center"><h3>Disclosure</h3></div>
       <div>
-        <p>
-          If bet is not accepted by takers, the funds will be returned to maker within 24 hours since the game started.
-        </p>
-        <p>
-          If balance does not reach the amount you want to bet, or such amount is not sufficient, a refill can take place, by clicking the icons in the middle.
-        </p>
-        <p>
-          Once the bet is accepted by taker the bet cannot be edited or cancelled.
-        </p>
-        <p>
-          Winning bets will be deposit to i-betU Account or Affiliate Bookie Account accordingly within 24hours since the official result has been delivered.
-        </p>
-        <p>
-          When sports event has been Canceled the money will be returned to the account where the bet fund was originated (i-betU Account, Affiliate Bookie Account or Bitcoin Account).
-        </p>
-        <p>
-          Postponed or rescheduled games will remain in full effect until the date.
+        <p *ngFor="let disclosure of disclosures" id="disclosure-{{ disclosure.id }}">
+          {{ disclosure.description }}
         </p>
       </div>
     </div>
@@ -93,14 +78,14 @@
     <mat-checkbox formControlName="disclosureAccepted">I have read and accept the disclosure.</mat-checkbox>
   </div>
 
-  <div class="mb-3">
+  <div class="d-flex gap-3 mb-3">
     <button mat-flat-button color="primary" [disabled]="form.invalid">Make Bet</button>
     <a mat-stroked-button routerLink="/matches">Cancel</a>
   </div>
 
 </form>
 
-<div class="card">
+<div class="mb-5">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <ngb-panel title="Share to (close bet)">
       <ng-template ngbPanelContent>

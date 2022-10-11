@@ -14,14 +14,17 @@ export class MakeBetComponent {
 
   model: makeBetDTO = {
     teamId: 0,
+    homeTeamId: 0,
+    awayTeamId: 0,
     betTypeId: 0,
     pointSpreadValue: 0,
     betTypeOptionId: 0,
     modalityId: 0,
-    amount: 0
+    amount: 0,
+    disclosureAccepted: false
   };
 
-  title = 'Make Bet';
+  title = 'Make your bet';
 
   makeBet(bet: makeBetDTO) {
     // ... save bet made

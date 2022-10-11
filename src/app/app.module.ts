@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { MatchesListComponent } from './matches/matches-list/matches-list.component';
 import { ListComponent } from './utils/list/list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 // import "leaflet/dist/images/marker-shadow.png";
@@ -116,6 +116,7 @@ import { MapComponent } from './utils/map/map.component';
     ReactiveFormsModule,
     NgbModule,
     LeafletModule,
+    FormsModule,
     MarkdownModule.forRoot()
   ],
   providers: [],
