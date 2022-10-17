@@ -1,13 +1,18 @@
 <h2>{{ title }}</h2>
 
+<app-validation-summary [errors]="errors"></app-validation-summary>
+
 <form (submit)="store()" [formGroup]="form">
   <mat-form-field appearance="outline" class="mb-3">
     <mat-label>Name</mat-label>
     <input formControlName="name" matInput>
     <mat-error *ngIf="form.invalid">{{ getNameFieldError() }}</mat-error>
   </mat-form-field>
+
+  <app-mat-icon-picker></app-mat-icon-picker>
+
   <div class="d-flex gap-3 mb-3">
     <button mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
-    <a mat-stroked-button routerLink="/sports/edit">Cancel</a>
+    <a mat-stroked-button routerLink="/sports">Cancel</a>
   </div>
 </form>

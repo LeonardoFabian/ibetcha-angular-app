@@ -1,6 +1,6 @@
 export interface playersDTO {
   name: string;
-  birthday: Date;
+  born: Date;
   height: number;
   weight: number;
   sportId: number;
@@ -12,7 +12,7 @@ export interface playersDTO {
 
 export interface playersCreateDTO {
   name: string;
-  birthday: Date;
+  born: Date;
   height: number;
   weight: number;
   sportId: number;

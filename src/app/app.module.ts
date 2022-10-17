@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MarkdownModule } from 'ngx-markdown';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 // import "leaflet/dist/images/marker-shadow.png";
 
 import { MaterialModule } from './material/material.module';
@@ -51,12 +53,15 @@ import { EditPostComponent } from './posts/edit-post/edit-post.component';
 import { CreateLeagueComponent } from './leagues/create-league/create-league.component';
 import { EditLeagueComponent } from './leagues/edit-league/edit-league.component';
 import { LeaguesIndexComponent } from './leagues/leagues-index/leagues-index.component';
-import { PlacesIndexComponent } from './places/places-index/places-index.component';
-import { PlacesFormComponent } from './places/places-form/places-form.component';
-import { CreatePlaceComponent } from './places/create-place/create-place.component';
-import { EditPlaceComponent } from './places/edit-place/edit-place.component';
 import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
 import { MapComponent } from './utils/map/map.component';
+import { PlayersAutocompleteComponent } from './players/players-autocomplete/players-autocomplete.component';
+import { ValidationSummaryComponent } from './utils/validation-summary/validation-summary.component';
+import { MatIconPickerComponent } from './utils/mat-icon-picker/mat-icon-picker.component';
+import { CourtsFormComponent } from './courts/courts-form/courts-form.component';
+import { CreateCourtComponent } from './courts/create-court/create-court.component';
+import { EditCourtComponent } from './courts/edit-court/edit-court.component';
+import { CourtsIndexComponent } from './courts/courts-index/courts-index.component';
 
 @NgModule({
   declarations: [
@@ -100,12 +105,15 @@ import { MapComponent } from './utils/map/map.component';
     CreateLeagueComponent,
     EditLeagueComponent,
     LeaguesIndexComponent,
-    PlacesIndexComponent,
-    PlacesFormComponent,
-    CreatePlaceComponent,
-    EditPlaceComponent,
     PostsIndexComponent,
-    MapComponent
+    MapComponent,
+    PlayersAutocompleteComponent,
+    ValidationSummaryComponent,
+    MatIconPickerComponent,
+    CourtsFormComponent,
+    CreateCourtComponent,
+    EditCourtComponent,
+    CourtsIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -117,7 +125,9 @@ import { MapComponent } from './utils/map/map.component';
     NgbModule,
     LeafletModule,
     FormsModule,
-    MarkdownModule.forRoot()
+    HttpClientModule,
+    MarkdownModule.forRoot(),
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

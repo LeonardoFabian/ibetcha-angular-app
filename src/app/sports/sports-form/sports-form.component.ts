@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { sportsCreateDTO } from '../sports';
+import { sportCreateDTO } from '../sports';
 
 @Component({
   selector: 'app-sports-form',
@@ -15,10 +15,13 @@ export class SportsFormComponent implements OnInit {
   form: FormGroup;
 
   @Input()
-  model: sportsCreateDTO;
+  errors: string[] = [];
+
+  @Input()
+  model: sportCreateDTO;
 
   @Output()
-  submit: EventEmitter<sportsCreateDTO> = new EventEmitter<sportsCreateDTO>();
+  onSubmit: EventEmitter<sportCreateDTO> = new EventEmitter<sportCreateDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -35,7 +38,7 @@ export class SportsFormComponent implements OnInit {
   title = 'Sports Form';
 
   store() {
-    this.submit.emit(this.form.value);
+    this.onSubmit.emit(this.form.value);
   }
 
   getNameFieldError() {

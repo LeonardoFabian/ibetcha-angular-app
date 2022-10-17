@@ -2,6 +2,6 @@
 
   <h1>{{ title }}</h1>
 
-  <app-leagues-form (onSubmit)="store($event)"></app-leagues-form>
+  <app-leagues-form [errors]="errors" (onSubmit)="store($event)"></app-leagues-form>
 
 </div>

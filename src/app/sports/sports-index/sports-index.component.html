@@ -1,1 +1,56 @@
-<p>sports-index works!</p>
+<div class="container">
+
+  <h1>{{ title }}</h1>
+
+  <a mat-flat-button routerLink="/sports/create" color="primary">Add New</a>
+
+  <app-list [list]="sports">
+    <ng-container content>
+      <table #table mat-table [dataSource]="sports" class="mat-elevation-z2 mt-3">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef >Id</th>
+          <td mat-cell *matCellDef="let element" >{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef >Name</th>
+          <td mat-cell *matCellDef="let element" >{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef >Options</th>
+          <td mat-cell *matCellDef="let element" >
+            <div class="d-flex gap-3">
+
+              <a routerLink="/sports/edit/{{ element.id }}" mat-flat-button color="primary" >Edit</a>
+              
+              <button mat-flat-button color="warn" 
+                [swal]="{
+                  title: 'Confirm', 
+                  text: 'Are you sure you want to delete this sport?', 
+                  showCancelButton: true}"
+                (confirm)="delete(element.id)" >
+                Delete
+              </button>
+
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tableColumns" ></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns" ></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"
+        showFirstLastButtons
+        [length]="totalRegistersQuantity"
+        [pageSize]="itemsToDisplay"
+        (page)="updatePagination($event)"
+      >
+      </mat-paginator>
+    </ng-container>
+  </app-list>
+
+</div>

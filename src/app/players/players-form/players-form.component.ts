@@ -17,6 +17,9 @@ export class PlayersFormComponent implements OnInit {
   @Input()
   model: playersDTO;
 
+  @Input()
+  errors: string[] = [];
+
   @Output()
   submit: EventEmitter<playersCreateDTO> = new EventEmitter<playersCreateDTO>();
 

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { parseErrorsFromAPI } from 'src/app/utils/helpers';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { sportsCreateDTO } from '../sports';
+import { sportCreateDTO } from '../sports';
+import { SportsService } from '../sports.service';
 
 @Component({
   selector: 'app-create-sport',
@@ -11,13 +13,16 @@ import { sportsCreateDTO } from '../sports';
 })
 export class CreateSportComponent {
 
-  constructor(private router: Router) { }
+  errors: string[] = [];
+
+  constructor(private router: Router, private sportsService: SportsService) { }
 
   title = 'Create Sport';
 
-  store(sport: sportsCreateDTO) {
-    // console.log(sport);
-    this.router.navigate(['/sports']);
+  store(sport: sportCreateDTO) {
+    this.sportsService.create(sport).subscribe(() => {
+      this.router.navigate(['/sports']);
+    }, (error) => this.errors = parseErrorsFromAPI(error));
   }
 
 }

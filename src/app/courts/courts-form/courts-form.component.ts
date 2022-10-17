@@ -2,26 +2,29 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Coordinates } from 'src/app/utils/map/coordinates';
 import { firstLetterUppercase } from 'src/app/utils/validators/firstLetterUppercase';
-import { placeCreateDTO, placeDTO } from '../places';
+import { courtCreateDTO, courtDTO } from '../courts';
 
 @Component({
-  selector: 'app-places-form',
-  templateUrl: './places-form.component.html',
-  styleUrls: ['./places-form.component.css']
+  selector: 'app-courts-form',
+  templateUrl: './courts-form.component.html',
+  styleUrls: ['./courts-form.component.css']
 })
-export class PlacesFormComponent implements OnInit {
+export class CourtsFormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
 
   form: FormGroup;
 
   @Input()
-  model: placeDTO;
+  model: courtDTO;
+
+  @Input()
+  errors: string[] = [];
 
   @Output()
-  onSubmit: EventEmitter<placeCreateDTO> = new EventEmitter<placeCreateDTO>(); 
+  onSubmit: EventEmitter<courtCreateDTO> = new EventEmitter<courtCreateDTO>();
 
-  placeCoordinates: Coordinates[] = [];
+  courtCoordinates: Coordinates[] = [];
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -35,11 +38,11 @@ export class PlacesFormComponent implements OnInit {
 
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
-      this.placeCoordinates.push({latitude: this.model.latitude, longitude: this.model.longitude});
+      this.courtCoordinates.push({latitude: this.model.latitude, longitude: this.model.longitude});
     }
   }
 
-  title = 'Places Form';
+  title = 'Courts Form';
 
   selectedImage(file) {
     this.form.get('photo').setValue(file);

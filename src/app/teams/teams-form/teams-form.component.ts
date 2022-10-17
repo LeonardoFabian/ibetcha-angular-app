@@ -49,6 +49,9 @@ export class TeamsFormComponent implements OnInit {
   @Input()
   model: teamsDTO;
 
+  @Input()
+  errors: string[] = [];
+
   @Output()
   submit: EventEmitter<teamsCreateDTO> = new EventEmitter<teamsCreateDTO>();
 

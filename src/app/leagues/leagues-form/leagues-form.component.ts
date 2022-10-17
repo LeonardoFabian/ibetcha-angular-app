@@ -17,6 +17,9 @@ export class LeaguesFormComponent implements OnInit {
   @Input()
   model: leagueDTO
 
+  @Input()
+  errors: string[] = [];
+
   @Output()
   onSubmit: EventEmitter<leagueCreateDTO> = new EventEmitter<leagueCreateDTO>();
 

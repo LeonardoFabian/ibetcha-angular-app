@@ -7,15 +7,15 @@ import { TakeBetComponent } from './bets/take-bet/take-bet.component';
 import { CategoriesIndexComponent } from './categories/categories-index/categories-index.component';
 import { CreateCategoryComponent } from './categories/create-category/create-category.component';
 import { EditCategoryComponent } from './categories/edit-category/edit-category.component';
+import { CourtsIndexComponent } from './courts/courts-index/courts-index.component';
+import { CreateCourtComponent } from './courts/create-court/create-court.component';
+import { EditCourtComponent } from './courts/edit-court/edit-court.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CreateLeagueComponent } from './leagues/create-league/create-league.component';
 import { EditLeagueComponent } from './leagues/edit-league/edit-league.component';
 import { LeaguesIndexComponent } from './leagues/leagues-index/leagues-index.component';
 import { MatchesFilterComponent } from './matches/matches-filter/matches-filter.component';
 import { MatchesIndexComponent } from './matches/matches-index/matches-index.component';
-import { CreatePlaceComponent } from './places/create-place/create-place.component';
-import { EditPlaceComponent } from './places/edit-place/edit-place.component';
-import { PlacesIndexComponent } from './places/places-index/places-index.component';
 import { CreatePlayerComponent } from './players/create-player/create-player.component';
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 import { PlayersIndexComponent } from './players/players-index/players-index.component';
@@ -38,9 +38,9 @@ const routes: Routes = [
   {path: 'leagues', component: LeaguesIndexComponent},
   {path: 'leagues/create', component: CreateLeagueComponent},
   {path: 'leagues/edit/:id', component: EditLeagueComponent},
-  {path: 'places', component: PlacesIndexComponent},
-  {path: 'places/create', component: CreatePlaceComponent},
-  {path: 'places/edit/:id', component: EditPlaceComponent},
+  {path: 'courts', component: CourtsIndexComponent},
+  {path: 'courts/create', component: CreateCourtComponent},
+  {path: 'courts/edit/:id', component: EditCourtComponent},
 
   {path: 'bets', component: BetsIndexComponent},
   {path: 'bets/make', component: MakeBetComponent},
