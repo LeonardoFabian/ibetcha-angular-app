@@ -14,7 +14,7 @@ export class EditTeamComponent implements OnInit {
   model: teamsDTO = {
     name: 'Los Angeles Lakers',
     shortName: 'LAL',
-    stadiumId: 1,
+    courtId: 1,
     countryId: 1,
     sportId: 2,
     leagueId: 2,

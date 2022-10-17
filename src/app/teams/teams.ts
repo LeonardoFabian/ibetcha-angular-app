@@ -1,7 +1,7 @@
 export interface teamsDTO {
   name: string;
   shortName: string;
-  stadiumId: number;
+  courtId: number;
   countryId: number;
   sportId: number;
   leagueId: number;
@@ -13,7 +13,7 @@ export interface teamsDTO {
 export interface teamsCreateDTO {
   name: string;
   shortName: string;
-  stadiumId: number;
+  courtId: number;
   countryId: number;
   sportId: number;
   leagueId: number;

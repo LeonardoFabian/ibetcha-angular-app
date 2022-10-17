@@ -64,8 +64,10 @@ export class LandingPageComponent implements OnInit {
   todayMatches;
   oldMatches = [];
   images = [
-    // 'https://media.istockphoto.com/photos/baseball-stadium-picture-id520876362?k=20&m=520876362&s=612x612&w=0&h=7kIxt7m55DdjWGlc0XW-aQLvbkcNbTZVV5sTjpNCinM=',
-    'https://www.teahub.io/photos/full/5-57796_basketball-wallpaper-and-background-image-id348806-slam-dunk.jpg'
+    '../../assets/images/baseball_mockup.jpg',
+    '../../assets/images/soccer_mockup.jpg',
+    '../../assets/images/tennis_mockup.jpg',
+    '../../assets/images/mma_mockup.jpg',
   ];
 
 }

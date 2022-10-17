@@ -1,0 +1,65 @@
+<h2>{{ title }}</h2>
+
+<app-validation-summary [errors]="errors"></app-validation-summary>
+
+<form (submit)="OnSubmit()" [formGroup]="form" >
+
+  <div class="mb-3">
+    <app-input-img [currentImageURL]="model?.image" (image)="selectedImage($event)" [width]="'100%'" [height]="'350px'"></app-input-img>
+  </div>
+
+  <div class="mb-3">
+    <mat-form-field appearance="outline" class="mb-3">
+      <mat-label>Title</mat-label>
+      <input formControlName="title" matInput />
+      <mat-error *ngIf="form.invalid">{{ getTitleFieldError() }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <h4>Description</h4>
+
+  <app-input-markdown [markdownContent]="model?.description" [placeholder]="'Write a description...'" (changeMarkdown)="handleChange($event)" ></app-input-markdown>
+
+  <mat-form-field appearance="outline" class="mb-3">
+    <mat-label>Link</mat-label>
+    <input type="url" formControlName="link" matInput />
+  </mat-form-field>
+
+  <div class="row g-3">
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="outline" class="mb-3">
+        <mat-label>Link Text</mat-label>
+        <input formControlName="linkText" matInput />
+      </mat-form-field>
+    </div>
+    <div class="col col-md-4">
+      <mat-form-field appearance="outline" class="mb-3">
+        <mat-label>Style</mat-label>
+        <mat-select formControlName="styleId">
+          <mat-option *ngFor="let style of styles" [value]="style.id">{{ style.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col col-md-4">
+      <mat-form-field appearance="outline" class="mb-3">
+        <mat-label>Target</mat-label>
+        <mat-select formControlName="linkTargetId">
+          <mat-option *ngFor="let target of targets" [value]="target.id">{{ target.name }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- <div class="mb-3">
+    <mat-checkbox formControlName="isActive">Show or not the slide</mat-checkbox>
+  </div> -->
+
+  <div class="d-flex gap-3 mb-3">
+    <button mat-flat-button color="primary" [disabled]="form.invalid">Save</button>
+    <a mat-raised-button routerLink="/slides">Cancel</a>
+  </div>
+
+
+</form>
+
+

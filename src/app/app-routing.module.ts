@@ -21,6 +21,10 @@ import { EditPlayerComponent } from './players/edit-player/edit-player.component
 import { PlayersIndexComponent } from './players/players-index/players-index.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { EditPostComponent } from './posts/edit-post/edit-post.component';
+import { PostsIndexComponent } from './posts/posts-index/posts-index.component';
+import { CreateSlideComponent } from './slides/create-slide/create-slide.component';
+import { EditSlideComponent } from './slides/edit-slide/edit-slide.component';
+import { SlidesIndexComponent } from './slides/slides-index/slides-index.component';
 import { CreateSportComponent } from './sports/create-sport/create-sport.component';
 import { EditSportComponent } from './sports/edit-sport/edit-sport.component';
 import { SportsIndexComponent } from './sports/sports-index/sports-index.component';
@@ -55,8 +59,12 @@ const routes: Routes = [
   {path: 'players/create', component: CreatePlayerComponent},
   {path: 'players/edit/:id', component: EditPlayerComponent},
 
+  {path: 'posts', component: PostsIndexComponent},
   {path: 'posts/create', component: CreatePostComponent},
   {path: 'posts/edit/:id', component: EditPostComponent},
+  {path: 'slides', component: SlidesIndexComponent},
+  {path: 'slides/create', component: CreateSlideComponent},
+  {path: 'slides/edit/:id', component: EditSlideComponent},
   {path: '**', redirectTo: ''}
 ];
 

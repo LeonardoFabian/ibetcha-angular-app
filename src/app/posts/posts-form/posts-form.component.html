@@ -1,5 +1,7 @@
 <h2>{{ title }}</h2>
 
+<app-validation-summary [errors]="errors"></app-validation-summary>
+
 <form (submit)="OnSubmit()" [formGroup]="form">
 
   <div class="d-flex flex-wrap">
@@ -15,6 +17,8 @@
         <mat-label>Slug</mat-label>
         <input formControlName="slug" matInput readonly class="readonly text-muted" />
       </mat-form-field>
+
+      <h4>Content</h4>
 
       <app-input-markdown [markdownContent]="model?.content" [placeholder]="'Write an article...'" (changeMarkdown)="handleChange($event)"></app-input-markdown>
 

@@ -14,7 +14,7 @@ export class TeamsFormComponent implements OnInit {
 
   form: FormGroup;
 
-  stadiums = [
+  courts = [
     {id: 1, name: 'Crypto Center'},
     {id: 2, name: 'Barclays Center'},
     {id: 3, name: 'Yankee Stadium'},
@@ -61,7 +61,7 @@ export class TeamsFormComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(3), firstLetterUppercase()]
       }],
       shortName: '',
-      stadiumId: 0,
+      courtId: 0,
       countryId: 0,
       sportId: 0,
       leagueId: 0,

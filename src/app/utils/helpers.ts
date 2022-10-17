@@ -31,4 +31,33 @@ export function parseErrorsFromAPI(response: any): string[] {
   return result;
 }
 
+/**
+ * Format Date
+ */
+export function toDateFormat(date: Date) {
+  const formatter = new Intl.DateTimeFormat('en', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  });
+
+  const [
+    {value: month},,
+    {value: day},,
+    {value: year}
+  ] = formatter.formatToParts(date);
+
+  return `${year}-${month}-${day}`;
+}
+
+/**
+ * Number format
+ */
+export function toNumberFormat(number: number) {
+  const formatter = new Intl.NumberFormat('en', {
+    maximumSignificantDigits: 3
+  });
+
+  return formatter.format(number);
+}
 

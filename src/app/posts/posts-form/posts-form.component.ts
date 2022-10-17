@@ -23,6 +23,9 @@ export class PostsFormComponent implements OnInit {
   @Input()
   model: postDTO;
 
+  @Input()
+  errors: string[] = [];
+
   @Output()
   onSubmit: EventEmitter<postCreateDTO> = new EventEmitter<postCreateDTO>();
 

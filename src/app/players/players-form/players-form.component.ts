@@ -21,7 +21,7 @@ export class PlayersFormComponent implements OnInit {
   errors: string[] = [];
 
   @Output()
-  submit: EventEmitter<playersCreateDTO> = new EventEmitter<playersCreateDTO>();
+  onSubmit: EventEmitter<playersCreateDTO> = new EventEmitter<playersCreateDTO>();
 
   heights = [
     {id: 1, name: '6 ft 6 in', value: '1.98 m'},
@@ -74,8 +74,8 @@ export class PlayersFormComponent implements OnInit {
     this.form.get('photo').setValue(file);
   }
 
-  onSubmit() {
-    this.submit.emit(this.form.value);
+  OnSubmit() {
+    this.onSubmit.emit(this.form.value);
   }
 
   getNameFieldError() {

@@ -62,6 +62,10 @@ import { CourtsFormComponent } from './courts/courts-form/courts-form.component'
 import { CreateCourtComponent } from './courts/create-court/create-court.component';
 import { EditCourtComponent } from './courts/edit-court/edit-court.component';
 import { CourtsIndexComponent } from './courts/courts-index/courts-index.component';
+import { SlidesIndexComponent } from './slides/slides-index/slides-index.component';
+import { SlidesFormComponent } from './slides/slides-form/slides-form.component';
+import { CreateSlideComponent } from './slides/create-slide/create-slide.component';
+import { EditSlideComponent } from './slides/edit-slide/edit-slide.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +117,11 @@ import { CourtsIndexComponent } from './courts/courts-index/courts-index.compone
     CourtsFormComponent,
     CreateCourtComponent,
     EditCourtComponent,
-    CourtsIndexComponent
+    CourtsIndexComponent,
+    SlidesIndexComponent,
+    SlidesFormComponent,
+    CreateSlideComponent,
+    EditSlideComponent
   ],
   imports: [
     BrowserModule,
