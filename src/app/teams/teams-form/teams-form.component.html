@@ -2,7 +2,7 @@
 
 <app-validation-summary [errors]="errors"></app-validation-summary>
 
-<form (submit)="store()" [formGroup]="form">
+<form (submit)="OnSubmit()" [formGroup]="form">
 
   <div class="d-flex flex-wrap">
     <div class="col-12 col-md-3">
@@ -59,12 +59,12 @@
       <div class="row">
         <mat-form-field appearance="outline" class="col-md-2">
           <mat-label>Primary Color</mat-label>
-          <input formControlName="colorPrimary" type="color" matInput >
+          <input formControlName="primaryColor" type="color" matInput >
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="col-md-2">
           <mat-label>Secondary Color</mat-label>
-          <input formControlName="colorSecondary" type="color" matInput >
+          <input formControlName="secondaryColor" type="color" matInput >
         </mat-form-field>
       </div>
 

@@ -6,7 +6,7 @@
 
   <div class="d-flex gap-4">
     <div class="col-12 col-md-2">
-      <app-input-img></app-input-img>
+      <app-input-img [currentImageURL]="model?.logo" (image)="selectedImage($event)" [height]="'150px'" ></app-input-img>
     </div>
 
     <div class="col-12 col-md-10">

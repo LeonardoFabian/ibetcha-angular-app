@@ -18,8 +18,8 @@ export class EditTeamComponent implements OnInit {
     countryId: 1,
     sportId: 2,
     leagueId: 2,
-    colorPrimary: '#552583',
-    colorSecondary: '#FDB927',
+    primaryColor: '#552583',
+    secondaryColor: '#FDB927',
     logo: 'https://seeklogo.com/images/L/los-angeles-lakers-logo-421B60BCC0-seeklogo.com.png'
   };
 

@@ -5,8 +5,8 @@ export interface teamsDTO {
   countryId: number;
   sportId: number;
   leagueId: number;
-  colorPrimary: string;
-  colorSecondary: string;
+  primaryColor: string;
+  secondaryColor: string;
   logo: string;
 }
 
@@ -17,7 +17,7 @@ export interface teamsCreateDTO {
   countryId: number;
   sportId: number;
   leagueId: number;
-  colorPrimary: string;
-  colorSecondary: string;
+  primaryColor: string;
+  secondaryColor: string;
   logo: File;
 }

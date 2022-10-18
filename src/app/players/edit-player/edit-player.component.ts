@@ -13,8 +13,8 @@ export class EditPlayerComponent implements OnInit {
   model: playersDTO = {
     name: 'LeBron James',
     born: new Date(),
-    height: 2,
-    weight: 2,
+    heightId: 2,
+    weightId: 2,
     sportId: 2,
     teamId: 1,
     number: 6,

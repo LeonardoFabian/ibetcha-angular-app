@@ -1,21 +1,22 @@
 import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { courtDTO } from '../courts';
-import { CourtsService } from '../courts.service';
+import { courtDTO } from 'src/app/courts/courts';
+import { teamsDTO } from '../teams';
+import { TeamsService } from '../teams.service';
 
 @Component({
-  selector: 'app-courts-index',
-  templateUrl: './courts-index.component.html',
-  styleUrls: ['./courts-index.component.css']
+  selector: 'app-teams-index',
+  templateUrl: './teams-index.component.html',
+  styleUrls: ['./teams-index.component.css']
 })
-export class CourtsIndexComponent implements OnInit {
+export class TeamsIndexComponent implements OnInit {
 
-  constructor(private courtsService: CourtsService) { }
+  constructor(private teamsService: TeamsService) { }
 
-  courts: courtDTO[];
+  teams: teamsDTO[];
 
-  tableColumns = ['photo', 'id', 'name', 'options'];
+  tableColumns = ['logo', 'name', 'shortName', 'options'];
   totalRegistersQuantity;
   currentPage = 1;
   itemsToDisplay = 10;
@@ -24,12 +25,12 @@ export class CourtsIndexComponent implements OnInit {
     this.loadItems(this.currentPage, this.itemsToDisplay);
   }
 
-  title = 'Courts';
+  title = 'Teams';
 
   loadItems(page: number, itemsPerPage) {
-    this.courtsService.getAll(page, itemsPerPage)
-    .subscribe((result: HttpResponse<courtDTO[]>) => {
-      this.courts = result.body;
+    this.teamsService.getAll(page, itemsPerPage)
+    .subscribe((result: HttpResponse<teamsDTO[]>) => {
+      this.teams = result.body;
       this.totalRegistersQuantity = result.headers.get("totalRegistersQuantity");
     }, error => console.error(error));
   }
@@ -41,7 +42,7 @@ export class CourtsIndexComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.courtsService.delete(id)
+    this.teamsService.delete(id)
     .subscribe(() => {
       this.loadItems(this.currentPage, this.itemsToDisplay);
     }, error => console.error(error));

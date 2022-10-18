@@ -55,6 +55,10 @@ export class LeaguesFormComponent implements OnInit {
 
   title = 'Leagues Form';
 
+  selectedImage(file) {
+    this.form.get('logo').setValue(file);
+  }
+
   OnSubmit() {
     this.onSubmit.emit(this.form.value);
   }

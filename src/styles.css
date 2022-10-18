@@ -10,3 +10,19 @@ form mat-form-field {
 table {
   width: 100%;
 }
+
+img.player-select-portrait {
+  height: 60px;
+  width: 50px;
+  object-fit: cover;
+  vertical-align: middle;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  margin-right: .5rem;
+}
+
+img.league-select-portrait {
+  height: 30px;
+  width: auto;
+  text-align: center;
+}

@@ -25,12 +25,12 @@ export class PlayersFormComponent implements OnInit {
 
   heights = [
     {id: 1, name: '6 ft 6 in', value: '1.98 m'},
-    {id: 1, name: '6 ft 9 in', value: '2.06 m'},
+    {id: 2, name: '6 ft 9 in', value: '2.06 m'},
   ];
 
   weights = [
     {id: 1, name: '212 lb', value: '96 kg'},
-    {id: 1, name: '250 lb', value: '113 kg'},
+    {id: 2, name: '250 lb', value: '113 kg'},
   ]
 
   sports = [

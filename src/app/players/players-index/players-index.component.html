@@ -1,1 +1,69 @@
-<p>players-index works!</p>
+<div class="container">
+
+  <h1>{{ title }}</h1>
+
+  <button mat-flat-button color="primary" routerLink="/players/create">Add New</button>
+
+  <app-list [list]="players" >
+    <ng-container content>
+      <table #table mat-table [dataSource]="players" class="mat-elevation-z2" >
+
+        <ng-container matColumnDef="photo">
+          <th mat-header-cell *matHeaderCellDef>Photo</th>
+          <td mat-cell *matCellDef="let element" style="width: 100px">
+            <img [src]="element.photo" class="player-select-portrait" />
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name" >
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element" >{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="number" >
+          <th mat-header-cell *matHeaderCellDef>Number</th>
+          <td mat-cell *matCellDef="let element">{{ element.number }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef >Options</th>
+          <td mat-cell *matCellDef="let element" >
+            <div class="d-flex gap-3">
+
+              <a routerLink="/players/edit/{{ element.id }}" mat-flat-button color="primary" >Edit</a>
+
+              <button mat-flat-button color="warn"
+                [swal]="{
+                  title: 'Delete Player',
+                  text: 'Are you sure you want to delete this player?',
+                  showCancelButton: true}"
+                (confirm)="delete(element.id)" >
+                Delete
+              </button>
+
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tableColumns" ></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns" ></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"
+        showFirstLastButtons
+        [length]="totalRegistersQuantity"
+        [pageSize]="itemsToDisplay"
+        (page)="updatePagination($event)"
+      >
+      </mat-paginator>
+
+    </ng-container>
+  </app-list>
+
+</div>

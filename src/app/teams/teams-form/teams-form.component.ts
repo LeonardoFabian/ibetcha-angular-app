@@ -53,12 +53,12 @@ export class TeamsFormComponent implements OnInit {
   errors: string[] = [];
 
   @Output()
-  submit: EventEmitter<teamsCreateDTO> = new EventEmitter<teamsCreateDTO>();
+  onSubmit: EventEmitter<teamsCreateDTO> = new EventEmitter<teamsCreateDTO>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: ['', {
-        validators: [Validators.required, Validators.minLength(3), firstLetterUppercase()]
+        validators: [Validators.required, firstLetterUppercase()]
       }],
       shortName: '',
       courtId: 0,
@@ -66,8 +66,8 @@ export class TeamsFormComponent implements OnInit {
       sportId: 0,
       leagueId: 0,
       logo: '',
-      colorPrimary: '',
-      colorSecondary: ''
+      primaryColor: '',
+      secondaryColor: ''
     });
 
     if (this.model !== undefined) {
@@ -81,8 +81,8 @@ export class TeamsFormComponent implements OnInit {
     this.form.get('logo').setValue(file);
   }
 
-  store() {
-    this.submit.emit(this.form.value);
+  OnSubmit() {
+    this.onSubmit.emit(this.form.value);
   }
 
   getNameFieldError() {
@@ -90,10 +90,6 @@ export class TeamsFormComponent implements OnInit {
 
     if (field.hasError('required')) {
       return 'The name field is required';
-    }
-
-    if (field.hasError('minlength')) {
-      return 'Minimun length is three characters';
     }
 
     if (field.hasError('firstLetterUppercase')) {

@@ -66,6 +66,7 @@ import { SlidesIndexComponent } from './slides/slides-index/slides-index.compone
 import { SlidesFormComponent } from './slides/slides-form/slides-form.component';
 import { CreateSlideComponent } from './slides/create-slide/create-slide.component';
 import { EditSlideComponent } from './slides/edit-slide/edit-slide.component';
+import { TeamsIndexComponent } from './teams/teams-index/teams-index.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import { EditSlideComponent } from './slides/edit-slide/edit-slide.component';
     SlidesIndexComponent,
     SlidesFormComponent,
     CreateSlideComponent,
-    EditSlideComponent
+    EditSlideComponent,
+    TeamsIndexComponent
   ],
   imports: [
     BrowserModule,

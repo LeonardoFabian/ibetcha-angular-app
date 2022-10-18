@@ -30,6 +30,8 @@ import { EditSportComponent } from './sports/edit-sport/edit-sport.component';
 import { SportsIndexComponent } from './sports/sports-index/sports-index.component';
 import { CreateTeamComponent } from './teams/create-team/create-team.component';
 import { EditTeamComponent } from './teams/edit-team/edit-team.component';
+import { TeamsIndexComponent } from './teams/teams-index/teams-index.component';
+import { TeamsService } from './teams/teams.service';
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
@@ -53,6 +55,7 @@ const routes: Routes = [
   {path: 'matches', component: MatchesIndexComponent},
   {path: 'matches/search', component: MatchesFilterComponent},
 
+  {path: 'teams', component: TeamsIndexComponent},
   {path: 'teams/create', component: CreateTeamComponent},
   {path: 'teams/edit/:id', component: EditTeamComponent},
   {path: 'players', component: PlayersIndexComponent},
