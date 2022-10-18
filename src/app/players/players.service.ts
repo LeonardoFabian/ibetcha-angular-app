@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { sportDTO } from '../sports/sports';
 import { toDateFormat, toNumberFormat } from '../utils/helpers';
 import { playersCreateDTO, playersDTO } from './players';
 
@@ -19,6 +20,10 @@ export class PlayersService {
     params = params.append('page', page.toString());
     params = params.append('itemsPerPage', itemsPerPage.toString());
     return this.http.get<playersDTO[]>(this.apiURL, {observe: 'response', params});
+  }
+
+  public getById(id: number): Observable<playersDTO> {
+    return this.http.get<playersDTO>(`${this.apiURL}/${id}`);
   }
 
   public create(player: playersCreateDTO) {
@@ -62,6 +67,10 @@ export class PlayersService {
     }
 
     return formData;
+  }
+
+  public edit(id: number, player: playersCreateDTO) {
+    return this.http.put(`${this.apiURL}/${id}`, player);
   }
 
   public delete(id: number) {

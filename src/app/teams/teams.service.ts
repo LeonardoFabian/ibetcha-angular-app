@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { toNumberFormat } from '../utils/helpers';
-import { teamsCreateDTO } from './teams';
+import { teamsCreateDTO, teamsDTO } from './teams';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,10 @@ export class TeamsService {
     return this.http.get(this.apiURL, {observe: 'response', params});
   }
 
+  public getById(id: number): Observable<teamsDTO> {
+    return this.http.get<teamsDTO>(`${this.apiURL}/${id}`);
+  }
+
   public create(team: teamsCreateDTO) {
     const formData = this.setFormData(team);
     return this.http.post(this.apiURL, formData);
@@ -29,7 +33,9 @@ export class TeamsService {
   public setFormData(team: teamsCreateDTO): FormData {
     const formData = new FormData();
 
-    formData.append('name', team.name);
+    if (team.name) {
+      formData.append('name', team.name);
+    }
 
     if (team.shortName) {
       formData.append('shortName', team.shortName);
@@ -64,6 +70,10 @@ export class TeamsService {
     }
 
     return formData;
+  }
+
+  public edit(id: number, team: teamsCreateDTO) {
+    return this.http.put(`${this.apiURL}/${id}`, team);
   }
 
   public delete(id: number) {

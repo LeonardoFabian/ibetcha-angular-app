@@ -1,1 +1,74 @@
-<p>slides-index works!</p>
+<div class="container">
+
+  <h1>{{ title }}</h1>
+
+  <a mat-flat-button routerLink="/slides/create" color="primary">Add New</a>
+
+  <app-list [list]="slides">
+    <ng-container content>
+      <table #table mat-table [dataSource]="slides" class="mat-elevation-z2 mt-3">
+
+        <ng-container matColumnDef="image">
+          <th mat-header-cell *matHeaderCellDef>Image</th>
+          <td mat-cell *matCellDef="let element" style="width: 200px;" class="text-center">
+            <img [src]="element.image" class="img-fluid p-2" />
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef >Id</th>
+          <td mat-cell *matCellDef="let element" >{{ element.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef >Title</th>
+          <td mat-cell *matCellDef="let element" >{{ element.title }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="link">
+          <th mat-header-cell *matHeaderCellDef >Link</th>
+          <td mat-cell *matCellDef="let element" >{{ element.link }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="styleId">
+          <th mat-header-cell *matHeaderCellDef >Style</th>
+          <td mat-cell *matCellDef="let element" >{{ element.styleId }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th mat-header-cell *matHeaderCellDef >Options</th>
+          <td mat-cell *matCellDef="let element" >
+            <div class="d-flex gap-3">
+
+              <a routerLink="/slides/edit/{{ element.id }}" mat-flat-button color="primary" >Edit</a>
+
+              <button mat-flat-button color="warn"
+                [swal]="{
+                  title: 'Delete Slide',
+                  text: 'Are you sure you want to delete this slide?',
+                  showCancelButton: true}"
+                (confirm)="delete(element.id)" >
+                Delete
+              </button>
+
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="tableColumns" ></tr>
+        <tr mat-row *matRowDef="let row; columns: tableColumns" ></tr>
+
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]"
+        showFirstLastButtons
+        [length]="totalRegistersQuantity"
+        [pageSize]="itemsToDisplay"
+        (page)="updatePagination($event)"
+      >
+      </mat-paginator>
+
+    </ng-container>
+  </app-list>
+
+</div>

@@ -1,4 +1,5 @@
 export interface playersDTO {
+  id: number;
   name: string;
   born: Date;
   heightId: number;

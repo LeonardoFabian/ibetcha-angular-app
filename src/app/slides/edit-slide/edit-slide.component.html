@@ -1,1 +1,13 @@
-<p>edit-slide works!</p>
+<div class="container">
+
+  <h1>{{ title }}</h1>
+
+  <app-slides-form *ngIf="model"
+    [model]="model"
+    [errors]="errors"
+    (onSubmit)="store($event)">
+  </app-slides-form>
+
+  <mat-spinner *ngIf="!model"></mat-spinner>
+
+</div>

@@ -2,6 +2,12 @@
 
   <h1>{{ title }}</h1>
 
-  <app-teams-form (submit)="store($event)" [model]="model"></app-teams-form>
+  <app-sports-form *ngIf="model"
+    [model]="model"
+    [errors]="errors"
+    (onSubmit)="store($event)">
+  </app-sports-form>
+
+  <mat-spinner *ngIf="!model"></mat-spinner>
 
 </div>

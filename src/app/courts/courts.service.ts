@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { toNumberFormat } from '../utils/helpers';
-import { courtCreateDTO } from './courts';
+import { courtCreateDTO, courtDTO } from './courts';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class CourtsService {
     params = params.append('page', page.toString());
     params = params.append('itemsPerPage', itemsPerPage.toString());
     return this.http.get(this.apiURL, {observe: 'response', params});
+  }
+
+  public getById(id: number): Observable<courtDTO> {
+    return this.http.get<courtDTO>(`${this.apiURL}/${id}`);
   }
 
   public create(court: courtCreateDTO) {
@@ -46,6 +50,10 @@ export class CourtsService {
     }
 
     return formData;
+  }
+
+  public edit(id: number, court: courtCreateDTO) {
+    return this.http.put(`${this.apiURL}/${id}`, court);
   }
 
   public delete(id: number) {

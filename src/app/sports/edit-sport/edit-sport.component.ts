@@ -11,9 +11,11 @@ import { SportsService } from '../sports.service';
 })
 export class EditSportComponent implements OnInit {
 
-  constructor(private router: Router,
-              private activatedRoute: ActivatedRoute,
-              private sportsService: SportsService) { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private sportsService: SportsService
+  ) { }
 
   model: sportDTO;
   errors: string[] = [];
@@ -31,9 +33,9 @@ export class EditSportComponent implements OnInit {
 
   store(sport: sportCreateDTO) {
     this.sportsService.edit(this.model.id, sport)
-      .subscribe(() => {
-        this.router.navigate(['/sports']);
-      }, error => this.errors = parseErrorsFromAPI(error))
+    .subscribe(() => {
+      this.router.navigate(['/sports']);
+    }, error => this.errors = parseErrorsFromAPI(error))
   }
 
 }

@@ -1,4 +1,5 @@
 export interface leagueDTO {
+  id: number;
   name: string;
   shortName: string;
   countryId: number;

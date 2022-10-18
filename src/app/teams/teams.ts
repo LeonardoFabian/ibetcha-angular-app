@@ -1,4 +1,5 @@
 export interface teamsDTO {
+  id: number;
   name: string;
   shortName: string;
   courtId: number;

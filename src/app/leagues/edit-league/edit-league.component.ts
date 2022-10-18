@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { parseErrorsFromAPI } from 'src/app/utils/helpers';
 import { leagueCreateDTO, leagueDTO } from '../leagues';
+import { LeaguesService } from '../leagues.service';
 
 @Component({
   selector: 'app-edit-league',
@@ -8,23 +11,31 @@ import { leagueCreateDTO, leagueDTO } from '../leagues';
 })
 export class EditLeagueComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private leaguesService: LeaguesService
+  ) { }
 
-  model: leagueDTO = {
-    name: 'Liga Dominicana de Baseball',
-    shortName: 'LIDOM',
-    countryId: 4,
-    sportId: 1,
-    logo: ''
-  };
+  model: leagueDTO;
+  errors: string[] = [];
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.leaguesService.getById(params.id)
+      .subscribe(league => {
+        this.model = league;
+      }, () => this.router.navigate(['/leagues']));
+    });
   }
 
   title = 'Edit League';
 
   store(league: leagueCreateDTO) {
-    console.log(league);
+    this.leaguesService.edit(this.model.id, league)
+    .subscribe(() => {
+      this.router.navigate(['/leagues']);
+    }, error => this.errors = parseErrorsFromAPI(error))
   }
 
 }

@@ -1,4 +1,5 @@
 export interface courtDTO {
+  id: number;
   name: string;
   photo: string;
   latitude: number;

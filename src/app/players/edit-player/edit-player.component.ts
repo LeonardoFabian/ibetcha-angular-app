@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { parseErrorsFromAPI } from 'src/app/utils/helpers';
 import { playersCreateDTO, playersDTO } from '../players';
+import { PlayersService } from '../players.service';
 
 @Component({
   selector: 'app-edit-player',
@@ -8,26 +11,31 @@ import { playersCreateDTO, playersDTO } from '../players';
 })
 export class EditPlayerComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private playersService: PlayersService
+  ) { }
 
-  model: playersDTO = {
-    name: 'LeBron James',
-    born: new Date(),
-    heightId: 2,
-    weightId: 2,
-    sportId: 2,
-    teamId: 1,
-    number: 6,
-    photo: 'https://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/1966.png'
-  };
+  model: playersDTO;
+  errors: string[] = [];
 
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.playersService.getById(params.id)
+      .subscribe(player => {
+        this.model = player;
+      }, () => this.router.navigate(['/players']));
+    });
   }
 
   title = 'Edit Player';
 
   store(player: playersCreateDTO) {
-    console.log(player);
+    this.playersService.edit(this.model.id, player)
+    .subscribe(() => {
+      this.router.navigate(['/players']);
+    }, error => this.errors = parseErrorsFromAPI(error))
   }
 
 }

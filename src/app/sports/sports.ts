@@ -1,5 +1,4 @@
 export interface sportCreateDTO {
-  id: number;
   name: string;
   icon: string;
 }

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { toNumberFormat } from '../utils/helpers';
-import { leagueCreateDTO } from './leagues';
+import { leagueCreateDTO, leagueDTO } from './leagues';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,10 @@ export class LeaguesService {
     params = params.append('page', page.toString());
     params = params.append('itemsPerPage', itemsPerPage.toString());
     return this.http.get(this.apiURL, {observe: 'response', params});
+  }
+
+  public getById(id: number): Observable<leagueDTO> {
+    return this.http.get<leagueDTO>(`${this.apiURL}/${id}`);
   }
 
   public create(league: leagueCreateDTO) {
@@ -50,6 +54,10 @@ export class LeaguesService {
     }
 
     return formData;
+  }
+
+  public edit(id: number, league: leagueCreateDTO) {
+    return this.http.put(`${this.apiURL}/${id}`, league);
   }
 
   public delete(id: number) {

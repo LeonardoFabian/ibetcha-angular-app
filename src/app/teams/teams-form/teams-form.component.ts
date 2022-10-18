@@ -65,9 +65,9 @@ export class TeamsFormComponent implements OnInit {
       countryId: 0,
       sportId: 0,
       leagueId: 0,
-      logo: '',
       primaryColor: '',
-      secondaryColor: ''
+      secondaryColor: '',
+      logo: ''
     });
 
     if (this.model !== undefined) {
